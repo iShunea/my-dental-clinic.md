@@ -142,7 +142,7 @@ function CustomSelect({ value, onChange, options, placeholder }: {
         <Icon icon={open ? 'lucide:chevron-up' : 'lucide:chevron-down'} className="text-primary-dark/40 text-sm ml-2 flex-shrink-0" />
       </button>
       {open && (
-        <div className="absolute z-50 top-full left-0 right-0 mt-1 bg-white border border-surface rounded-[10px] shadow-hover overflow-hidden">
+        <div className="absolute z-50 top-full left-0 right-0 mt-1 bg-white border border-surface rounded-[10px] shadow-hover overflow-y-auto max-h-[200px]">
           {options.map(opt => (
             <button
               key={opt}
