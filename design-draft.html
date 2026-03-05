@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ro" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dental Clinic - Zâmbetul tău, grija noastră</title>
+    
+    <!-- Google Fonts: Parkinsans & Libre Franklin -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,400;0,500;0,700;1,400&family=Parkinsans:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-dark': '#0E2338',
+                        'accent': '#A30B37',
+                        'bg-light': '#D3E3FD',
+                        'surface': '#E6E5EC',
+                        'neutral': '#CCCCCC',
+                    },
+                    fontFamily: {
+                        'sans': ['"Libre Franklin"', 'sans-serif'],
+                        'heading': ['"Parkinsans"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'subtle': '0 4px 24px rgba(14, 35, 56, 0.08)',
+                        'hover': '0 12px 40px rgba(14, 35, 56, 0.15)',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities for precise requirements */
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        
+        .opacity-0-init { opacity: 0; }
+
+        /* Custom smile pattern for CTA banner */
+        .bg-smile-pattern {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100"><path d="M20,40 Q50,70 80,40" stroke="%23FFFFFF" stroke-width="6" stroke-linecap="round" fill="transparent"/></svg>');
+            background-size: 80px 80px;
+        }
+    </style>
+</head>
+<body class="font-sans text-primary-dark antialiased bg-white selection:bg-accent selection:text-white">
+
+    <!-- ═══ SECTION 1: NAVBAR + HERO ═══ -->
+    
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-subtle transition-all duration-300">
+        <div class="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group" id="nav-logo">
+                <!-- Smile Arc Symbol -->
+                <svg width="32" height="24" viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-accent group-hover:scale-105 transition-transform">
+                    <path d="M4 8 Q20 28 36 8" stroke="currentColor" stroke-width="6" stroke-linecap="round" fill="transparent"/>
+                </svg>
+                <span class="font-heading font-bold text-xl tracking-tight text-primary-dark lowercase mt-1">my dental clinic</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#servicii" class="text-[14px] font-medium text-primary-dark hover:text-accent transition-colors" id="nav-services">Servicii</a>
+                <a href="#despre" class="text-[14px] font-medium text-primary-dark hover:text-accent transition-colors" id="nav-about">Despre noi</a>
+                <a href="#echipa" class="text-[14px] font-medium text-primary-dark hover:text-accent transition-colors" id="nav-team">Echipa</a>
+                <a href="#contact" class="text-[14px] font-medium text-primary-dark hover:text-accent transition-colors" id="nav-contact">Contact</a>
+            </div>
+
+            <!-- Right CTA -->
+            <div class="flex items-center gap-4">
+                <a href="#programare" class="hidden sm:inline-block bg-accent text-white font-medium text-[14px] px-6 py-2.5 rounded-[8px] hover:bg-[#8A092E] transition-colors shadow-sm" id="nav-cta">
+                    Programare online
+                </a>
+                <!-- Mobile Menu Toggle (Visual only for demo) -->
+                <button class="md:hidden text-primary-dark p-2" aria-label="Menu">
+                    <iconify-icon icon="lucide:menu" class="text-2xl"></iconify-icon>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-r from-white to-bg-light/80">
+        <!-- Decorative Quarter Circle -->
+        <div class="absolute bottom-0 right-0 w-[120px] h-[120px] bg-bg-light/60 rounded-tl-full z-0"></div>
+
+        <div class="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                
+                <!-- Text Column (55%) -->
+                <div class="w-full md:w-[55%] flex flex-col items-start">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 bg-bg-light text-primary-dark px-4 py-1.5 rounded-full text-[12px] font-medium mb-6 opacity-0-init animate-fade-in-up">
+                        <iconify-icon icon="lucide:award" class="text-accent"></iconify-icon>
+                        Cea mai mare clinică stomatologică din Moldova
+                    </div>
+                    
+                    <!-- H1 -->
+                    <h1 class="font-heading font-bold text-4xl md:text-[56px] leading-[1.1] text-primary-dark max-w-[520px] mb-6 tracking-tight opacity-0-init animate-fade-in-up delay-100">
+                        Zâmbetul tău,<br>grija noastră
+                    </h1>
+                    
+                    <!-- Subtitle -->
+                    <p class="text-[16px] md:text-[18px] text-primary-dark/70 max-w-[480px] mb-10 leading-relaxed opacity-0-init animate-fade-in-up delay-200">
+                        22 de scaune stomatologice &middot; 160+ pacienți zilnic &middot; Tehnologie Planmeca &amp; Dentsply &middot; Estetică facială
+                    </p>
+                    
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 opacity-0-init animate-fade-in-up delay-300">
+                        <a href="#programare" class="inline-flex justify-center items-center bg-accent text-white font-heading font-medium text-[16px] px-10 py-4 rounded-[50px] hover:scale-105 hover:shadow-lg transition-all duration-300" id="hero-cta-primary">
+                            Programează-te acum <iconify-icon icon="lucide:arrow-right" class="ml-2"></iconify-icon>
+                        </a>
+                        <a href="tel:076588884" class="text-accent font-medium text-[16px] hover:underline underline-offset-4 transition-all flex items-center gap-2" id="hero-cta-secondary">
+                            <iconify-icon icon="lucide:phone"></iconify-icon> sau sună: 076 588 884
+                        </a>
+                    </div>
+
+                    <!-- Social Proof -->
+                    <div class="mt-12 flex flex-wrap items-center gap-4 text-[13px] md:text-[14px] text-primary-dark/60 font-medium opacity-0-init animate-fade-in-up delay-400">
+                        <span class="flex items-center gap-1"><span class="text-accent">★</span> 4.9/5 Google Reviews</span>
+                        <span class="hidden sm:inline text-neutral">|</span>
+                        <span class="flex items-center gap-1"><iconify-icon icon="lucide:check-circle" class="text-accent"></iconify-icon> 100% Digitalizat</span>
+                        <span class="hidden sm:inline text-neutral">|</span>
+                        <span class="flex items-center gap-1"><iconify-icon icon="lucide:heart" class="text-accent"></iconify-icon> 10.000+ Pacienți</span>
+                    </div>
+                </div>
+
+                <!-- Image Column (45%) -->
+                <div class="w-full md:w-[45%] opacity-0-init animate-fade-in delay-300">
+                    <div class="relative w-full aspect-[4/5] max-w-[520px] mx-auto md:mr-0 md:h-[580px] rounded-[24px] overflow-hidden bg-gradient-to-br from-surface to-bg-light shadow-2xl group">
+                        <!-- Professional Placeholder Image -->
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-primary-dark/30">
+                             <iconify-icon icon="lucide:camera" class="text-5xl mb-4"></iconify-icon>
+                             <span class="font-heading font-medium">Imagine Clinică / Pacient</span>
+                        </div>
+                        
+                        <!-- Subtle gradient overlay bottom -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/60 via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                             <p class="text-white/90 text-sm font-medium drop-shadow-md flex items-center gap-2">
+                                <iconify-icon icon="lucide:sparkles" class="text-bg-light"></iconify-icon> Tehnologie de top &amp; Confort garantat
+                             </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- ═══ SECTION 2: STATS BAR ═══ -->
+    <section class="bg-primary-dark w-full">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 py-10 md:py-12">
+            <!-- Grid: 2 cols mobile, 5 cols desktop -->
+            <div class="grid grid-cols-2 lg:grid-cols-5 gap-8 md:gap-0">
+                
+                <!-- Stat 1 -->
+                <div class="flex flex-col items-center text-center lg:border-r border-white/20">
+                    <!-- Decorative Smile -->
+                    <svg width="20" height="12" viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-accent mb-2">
+                        <path d="M4 8 Q20 28 36 8" stroke="currentColor" stroke-width="6" stroke-linecap="round" fill="transparent"/>
+                    </svg>
+                    <div class="font-heading font-bold text-4xl md:text-[48px] text-white leading-none mb-1 tracking-tight">22</div>
+                    <div class="text-[13px] md:text-[14px] text-white/60 font-medium uppercase tracking-wide">scaune stomatologice</div>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="flex flex-col items-center text-center lg:border-r border-white/20">
+                    <svg width="20" height="12" viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-accent mb-2">
+                        <path d="M4 8 Q20 28 36 8" stroke="currentColor" stroke-width="6" stroke-linecap="round" fill="transparent"/>
+                    </svg>
+                    <div class="font-heading font-bold text-4xl md:text-[48px] text-white leading-none mb-1 tracking-tight">160+</div>
+                    <div class="text-[13px] md:text-[14px] text-white/60 font-medium uppercase tracking-wide">pacienți zilnic</div>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="flex flex-col items-center text-center lg:border-r border-white/20">
+                    <svg width="20" height="12" viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-accent mb-2">
+                        <path d="M4 8 Q20 28 36 8" stroke="currentColor" stroke-width="6" stroke-linecap="round" fill="transparent"/>
+                    </svg>
+                    <div class="font-heading font-bold text-4xl md:text-[48px] text-white leading-none mb-1 tracking-tight">3</div>
+                    <div class="text-[13px] md:text-[14px] text-white/60 font-medium uppercase tracking-wide">cabinete estetică facială</div>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="flex flex-col items-center text-center lg:border-r border-white/20">
+                    <svg width="20" height="12" viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-accent mb-2">
+                        <path d="M4 8 Q20 28 36 8" stroke="currentColor" stroke-width="6" stroke-linecap="round" fill="transparent"/>
+                    </svg>
+                    <div class="font-heading font-bold text-4xl md:text-[48px] text-white leading-none mb-1 tracking-tight">100%</div>
+                    <div class="text-[13px] md:text-[14px] text-white/60 font-medium uppercase tracking-wide">digitalizat</div>
+                </div>
+
+                <!-- Stat 5 (Spans 2 cols on mobile to center) -->
+                <div class="flex flex-col items-center text-center col-span-2 lg:col-span-1">
+                    <svg width="20" height="12" viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-accent mb-2">
+                        <path d="M4 8 Q20 28 36 8" stroke="currentColor" stroke-width="6" stroke-linecap="round" fill="transparent"/>
+                    </svg>
+                    <div class="font-heading font-bold text-4xl md:text-[48px] text-white leading-none mb-1 tracking-tight">10+</div>
+                    <div class="text-[13px] md:text-[14px] text-white/60 font-medium uppercase tracking-wide">specialități medicale</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SECTION 3: SERVICES ═══ -->
+    <section id="servicii" class="bg-surface py-20 md:py-24">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
+            
+            <!-- Header -->
+            <div class="max-w-[600px] mx-auto text-center mb-16">
+                <div class="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">
+                    Ce oferim
+                </div>
+                <h2 class="font-heading font-bold text-3xl md:text-[40px] text-primary-dark leading-tight mb-5">
+                    Servicii complete sub același acoperiș
+                </h2>
+                <p class="text-[16px] text-primary-dark/65">
+                    De la profilaxie la intervenții complexe — totul într-un singur loc
+                </p>
+            </div>
+
+            <!-- Grid 3x3 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                
+                <!-- Card 1 -->
+                <div class="group bg-white rounded-[16px] p-7 shadow-subtle hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-t-[3px] border-transparent hover:border-accent flex flex-col items-start cursor-pointer">
+                    <div class="w-10 h-10 rounded-full bg-bg-light text-accent flex items-center justify-center mb-5">
+                        <iconify-icon icon="lucide:stethoscope" class="text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="font-heading font-medium text-[17px] text-primary-dark mb-2">Stomatologie generală</h3>
+                    <p class="text-[14px] text-primary-dark/60 mb-4 flex-grow">Consultații, obturații, tratamente de rutină</p>
+                    <a href="#" class="text-accent font-medium text-[14px] flex items-center gap-1 group-hover:underline underline-offset-4" id="link-serv-1">Află mai mult <iconify-icon icon="lucide:arrow-right" class="text-xs"></iconify-icon></a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group bg-white rounded-[16px] p-7 shadow-subtle hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-t-[3px] border-transparent hover:border-accent flex flex-col items-start cursor-pointer">
+                    <div class="w-10 h-10 rounded-full bg-bg-light text-accent flex items-center justify-center mb-5">
+                        <iconify-icon icon="lucide:microscope" class="text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="font-heading font-medium text-[17px] text-primary-dark mb-2">Endodonție</h3>
+                    <p class="text-[14px] text-primary-dark/60 mb-4 flex-grow">Tratamente de canal cu tehnologie modernă</p>
+                    <a href="#" class="text-accent font-medium text-[14px] flex items-center gap-1 group-hover:underline underline-offset-4" id="link-serv-2">Află mai mult <iconify-icon icon="lucide:arrow-right" class="text-xs"></iconify-icon></a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group bg-white rounded-[16px] p-7 shadow-subtle hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-t-[3px] border-transparent hover:border-accent flex flex-col items-start cursor-pointer">
+                    <div class="w-10 h-10 rounded-full bg-bg-light text-accent flex items-center justify-center mb-5">
+                        <iconify-icon icon="lucide:smile" class="text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="font-heading font-medium text-[17px] text-primary-dark mb-2">Ortodonție</h3>
+                    <p class="text-[14px] text-primary-dark/60 mb-4 flex-grow">Aparate dentare metalice și estetice</p>
+                    <a href="#" class="text-accent font-medium text-[14px] flex items-center gap-1 group-hover:underline underline-offset-4" id="link-serv-3">Află mai mult <iconify-icon icon="lucide:arrow-right" class="text-xs"></iconify-icon></a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="group bg-white rounded-[16px] p-7 shadow-subtle hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-t-[3px] border-transparent hover:border-accent flex flex-col items-start cursor-pointer">
+                    <div class="w-10 h-10 rounded-full bg-bg-light text-accent flex items-center justify-center mb-5">
+                        <iconify-icon icon="lucide:scissors" class="text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="font-heading font-medium text-[17px] text-primary-dark mb-2">Chirurgie orală</h3>
+                    <p class="text-[14px] text-primary-dark/60 mb-4 flex-grow">Extracții, implanturi, intervenții complexe</p>
+                    <a href="#" class="text-accent font-medium text-[14px] flex items-center gap-1 group-hover:underline underline-offset-4" id="link-serv-4">Află mai mult <iconify-icon icon="lucide:arrow-right" class="text-xs"></iconify-icon></a>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="group bg-white rounded-[16px] p-7 shadow-subtle hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-t-[3px] border-transparent hover:border-accent flex flex-col items-start cursor-pointer">
+                    <div class="w-10 h-10 rounded-full bg-bg-light text-accent flex items-center justify-center mb-5">
+                        <iconify-icon icon="lucide:activity" class="text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="font-heading font-medium text-[17px] text-primary-dark mb-2">Parodontologie</h3>
+                    <p class="text-[14px] text-primary-dark/60 mb-4 flex-grow">Tratamentul bolilor gingivale</p>
+                    <a href="#" class="text-accent font-medium text-[14px] flex items-center gap-1 group-hover:underline underline-offset-4" id="link-serv-5">Află mai mult <iconify-icon icon="lucide:arrow-right" class="text-xs"></iconify-icon></a>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="group bg-white rounded-[16px] p-7 shadow-subtle hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-t-[3px] border-transparent hover:border-accent flex flex-col items-start cursor-pointer">
+                    <div class="w-10 h-10 rounded-full bg-bg-light text-accent flex items-center justify-center mb-5">
+                        <iconify-icon icon="lucide:baby" class="text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="font-heading font-medium text-[17px] text-primary-dark mb-2">Pedodonție</h3>
+                    <p class="text-[14px] text-primary-dark/60 mb-4 flex-grow">Stomatologie pentru copii și adolescenți</p>
+                    <a href="#" class="text-accent font-medium text-[14px] flex items-center gap-1 group-hover:underline underline-offset-4" id="link-serv-6">Află mai mult <iconify-icon icon="lucide:arrow-right" class="text-xs"></iconify-icon></a>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="group bg-white rounded-[16px] p-7 shadow-subtle hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-t-[3px] border-transparent hover:border-accent flex flex-col items-start cursor-pointer">
+                    <div class="w-10 h-10 rounded-full bg-bg-light text-accent flex items-center justify-center mb-5">
+                        <iconify-icon icon="lucide:sparkles" class="text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="font-heading font-medium text-[17px] text-primary-dark mb-2">Estetică dentară</h3>
+                    <p class="text-[14px] text-primary-dark/60 mb-4 flex-grow">Albire, fațete, remodelări estetice</p>
+                    <a href="#" class="text-accent font-medium text-[14px] flex items-center gap-1 group-hover:underline underline-offset-4" id="link-serv-7">Află mai mult <iconify-icon icon="lucide:arrow-right" class="text-xs"></iconify-icon></a>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="group bg-white rounded-[16px] p-7 shadow-subtle hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-t-[3px] border-transparent hover:border-accent flex flex-col items-start cursor-pointer">
+                    <div class="w-10 h-10 rounded-full bg-bg-light text-accent flex items-center justify-center mb-5">
+                        <iconify-icon icon="lucide:syringe" class="text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="font-heading font-medium text-[17px] text-primary-dark mb-2">Anestezie generală</h3>
+                    <p class="text-[14px] text-primary-dark/60 mb-4 flex-grow">Tratamente fără anxietate sau durere</p>
+                    <a href="#" class="text-accent font-medium text-[14px] flex items-center gap-1 group-hover:underline underline-offset-4" id="link-serv-8">Află mai mult <iconify-icon icon="lucide:arrow-right" class="text-xs"></iconify-icon></a>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="group bg-white rounded-[16px] p-7 shadow-subtle hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-t-[3px] border-transparent hover:border-accent flex flex-col items-start cursor-pointer">
+                    <div class="w-10 h-10 rounded-full bg-bg-light text-accent flex items-center justify-center mb-5">
+                        <iconify-icon icon="lucide:flower-2" class="text-xl"></iconify-icon>
+                    </div>
+                    <h3 class="font-heading font-medium text-[17px] text-primary-dark mb-2">Estetică facială</h3>
+                    <p class="text-[14px] text-primary-dark/60 mb-4 flex-grow">3 cabinete dedicate — botox, filere, tratamente</p>
+                    <a href="#" class="text-accent font-medium text-[14px] flex items-center gap-1 group-hover:underline underline-offset-4" id="link-serv-9">Află mai mult <iconify-icon icon="lucide:arrow-right" class="text-xs"></iconify-icon></a>
+                </div>
+
+            </div>
+
+            <!-- CTA Bottom -->
+            <div class="mt-16 text-center">
+                <a href="#toate-serviciile" class="inline-block border-2 border-accent text-accent bg-transparent font-medium px-10 py-3 rounded-[8px] hover:bg-accent hover:text-white transition-colors duration-300" id="btn-all-services">
+                    Vezi toate serviciile
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══ SECTION 4: WHY CHOOSE US ═══ -->
+    <section id="despre" class="bg-white py-20 md:py-24">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                
+                <!-- Image Column (45%) -->
+                <div class="w-full lg:w-[45%] relative">
+                    <div class="w-full aspect-[4/5] md:h-[600px] rounded-[20px] overflow-hidden bg-gradient-to-br from-surface to-neutral/30 shadow-lg relative">
+                         <!-- Placeholder Content -->
+                         <div class="absolute inset-0 flex flex-col items-center justify-center text-primary-dark/40">
+                            <iconify-icon icon="lucide:image" class="text-6xl mb-4"></iconify-icon>
+                            <span class="font-heading font-medium text-lg">Imagine Interior Clinică</span>
+                         </div>
+                    </div>
+                    <!-- Overlapping Badge -->
+                    <div class="absolute -bottom-5 -left-2 md:-left-6 bg-primary-dark text-white text-[13px] md:text-[14px] font-medium px-5 py-3 rounded-full shadow-lg border-4 border-white flex items-center gap-2">
+                        Cea mai mare clinică din Moldova <span class="text-lg leading-none">🏆</span>
+                    </div>
+                </div>
+
+                <!-- Benefits Column (55%) -->
+                <div class="w-full lg:w-[55%] flex flex-col items-start mt-8 lg:mt-0">
+                    <div class="text-accent text-[12px] font-bold uppercase tracking-[1px] mb-3">
+                        De ce noi
+                    </div>
+                    <h2 class="font-heading font-bold text-3xl md:text-[36px] text-primary-dark leading-[1.2] mb-5">
+                        Îngrijire completă, tehnologie avansată, oameni adevărați
+                    </h2>
+                    <p class="text-[15px] text-primary-dark/65 mb-10">
+                        Atingem excelența clinică cu o grijă personală autentică în fiecare etapă a tratamentului tău.
+                    </p>
+
+                    <!-- Benefits List -->
+                    <div class="flex flex-col gap-6 w-full">
+                        
+                        <!-- Item 1 -->
+                        <div class="flex items-start gap-4 pb-6 border-b border-neutral/40">
+                            <div class="w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <iconify-icon icon="lucide:check" class="text-sm"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[16px] text-primary-dark mb-1">Tehnologie de ultimă generație</h4>
+                                <p class="text-[14px] text-primary-dark/60">Echipamente Planmeca, Dentsply și EMS pentru precizie maximă și confort.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="flex items-start gap-4 pb-6 border-b border-neutral/40">
+                            <div class="w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <iconify-icon icon="lucide:check" class="text-sm"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[16px] text-primary-dark mb-1">Sistem 100% digitalizat</h4>
+                                <p class="text-[14px] text-primary-dark/60">Programări, dosare pacienți și planuri de tratamente în format complet digital.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="flex items-start gap-4 pb-6 border-b border-neutral/40">
+                            <div class="w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <iconify-icon icon="lucide:check" class="text-sm"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[16px] text-primary-dark mb-1">Prețuri oneste și transparente</h4>
+                                <p class="text-[14px] text-primary-dark/60">Planuri de tratament clare de la bun început, fără surprize sau costuri ascunse.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="flex items-start gap-4 pb-6 border-b border-neutral/40">
+                            <div class="w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <iconify-icon icon="lucide:check" class="text-sm"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[16px] text-primary-dark mb-1">Anestezie generală disponibilă</h4>
+                                <p class="text-[14px] text-primary-dark/60">Zone dedicate și medici ATI pentru pacienți cu anxietate sau intervenții complexe.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 5 -->
+                        <div class="flex items-start gap-4 pb-2">
+                            <div class="w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <iconify-icon icon="lucide:check" class="text-sm"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[16px] text-primary-dark mb-1">Echipă empatică și dedicată</h4>
+                                <p class="text-[14px] text-primary-dark/60">Fiecare pacient este ascultat și îngrijit ca o persoană, nu doar ca un caz medical.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Actions -->
+                    <div class="mt-10 flex flex-col items-start gap-4">
+                        <a href="#programare" class="inline-flex justify-center items-center bg-accent text-white font-medium text-[14px] px-8 py-3.5 rounded-[50px] hover:bg-[#8A092E] transition-colors shadow-sm" id="btn-why-us">
+                            Programează consultația
+                        </a>
+                        <p class="text-primary-dark/70 text-[14px]">
+                            sau sună acum: <a href="tel:076588884" class="text-accent font-medium hover:underline">076 588 884</a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SECTION 5: TESTIMONIALS ═══ -->
+    <section class="bg-gradient-to-b from-bg-light/60 to-white py-20 md:py-24 relative overflow-hidden">
+        <!-- Decorative Shield -->
+        <div class="absolute top-10 right-0 w-[200px] h-[200px] bg-bg-light/40 rounded-l-full rounded-tr-none rounded-br-full -mr-10 z-0 hidden lg:block"></div>
+
+        <div class="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
+            <!-- Header -->
+            <div class="max-w-[600px] mx-auto text-center mb-16">
+                <div class="text-accent text-[13px] font-bold uppercase tracking-[1px] mb-3">
+                    Ce spun pacienții noștri
+                </div>
+                <h2 class="font-heading font-bold text-3xl md:text-[38px] text-primary-dark leading-tight mb-4">
+                    Povești reale, zâmbete reale
+                </h2>
+                <div class="flex items-center justify-center gap-2 text-[15px] text-primary-dark font-medium">
+                    <div class="flex text-accent">
+                        <iconify-icon icon="lucide:star" class="fill-current"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="fill-current"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="fill-current"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="fill-current"></iconify-icon>
+                        <iconify-icon icon="lucide:star" class="fill-current"></iconify-icon>
+                    </div>
+                    <span>4.9 din 5 — bazat pe 500+ recenzii Google</span>
+                </div>
+            </div>
+
+            <!-- Grid Testimonials -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="bg-white rounded-[16px] p-8 shadow-subtle hover:shadow-hover hover:-translate-y-1 transition-all duration-300 relative overflow-hidden z-10">
+                    <div class="absolute -top-4 -left-2 text-[80px] font-heading font-bold text-bg-light opacity-40 leading-none z-0">
+                        "
+                    </div>
+                    <div class="relative z-10">
+                        <p class="italic text-[15px] text-primary-dark/80 mb-5 leading-relaxed min-h-[80px]">
+                            "Am venit cu multă teamă la prima vizită, dar echipa My Dental Clinic m-a făcut să mă simt în siguranță. Acum vin cu plăcere!"
+                        </p>
+                        <div class="flex text-accent text-sm mb-4">
+                            ★ ★ ★ ★ ★
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-neutral overflow-hidden">
+                                <iconify-icon icon="lucide:user" class="text-xl"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-medium text-[15px] text-primary-dark">Maria C., 34 ani</h4>
+                                <span class="text-[12px] text-primary-dark/50 flex items-center gap-1 mt-0.5">
+                                    Pacient verificat <iconify-icon icon="lucide:check" class="text-[10px]"></iconify-icon>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-[16px] p-8 shadow-subtle hover:shadow-hover hover:-translate-y-1 transition-all duration-300 relative overflow-hidden z-10">
+                    <div class="absolute -top-4 -left-2 text-[80px] font-heading font-bold text-bg-light opacity-40 leading-none z-0">
+                        "
+                    </div>
+                    <div class="relative z-10">
+                        <p class="italic text-[15px] text-primary-dark/80 mb-5 leading-relaxed min-h-[80px]">
+                            "Cel mai profesionist cabinet din Chișinău. Tehnologie impresionantă și medici cu adevărat empatici. Recomand cu încredere."
+                        </p>
+                        <div class="flex text-accent text-sm mb-4">
+                            ★ ★ ★ ★ ★
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-neutral overflow-hidden">
+                                <iconify-icon icon="lucide:user" class="text-xl"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-medium text-[15px] text-primary-dark">Alexandru T., 42 ani</h4>
+                                <span class="text-[12px] text-primary-dark/50 flex items-center gap-1 mt-0.5">
+                                    Pacient verificat <iconify-icon icon="lucide:check" class="text-[10px]"></iconify-icon>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-[16px] p-8 shadow-subtle hover:shadow-hover hover:-translate-y-1 transition-all duration-300 relative overflow-hidden z-10">
+                    <div class="absolute -top-4 -left-2 text-[80px] font-heading font-bold text-bg-light opacity-40 leading-none z-0">
+                        "
+                    </div>
+                    <div class="relative z-10">
+                        <p class="italic text-[15px] text-primary-dark/80 mb-5 leading-relaxed min-h-[80px]">
+                            "Pentru copilul meu a fost o experiență minunată. A ieșit cu diploma de merit și un zâmbet de la ureche la ureche!"
+                        </p>
+                        <div class="flex text-accent text-sm mb-4">
+                            ★ ★ ★ ★ ★
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-surface flex items-center justify-center text-neutral overflow-hidden">
+                                <iconify-icon icon="lucide:user" class="text-xl"></iconify-icon>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-medium text-[15px] text-primary-dark">Natalia P., mamă</h4>
+                                <span class="text-[12px] text-primary-dark/50 flex items-center gap-1 mt-0.5">
+                                    Pacient verificat <iconify-icon icon="lucide:check" class="text-[10px]"></iconify-icon>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SECTION 6: CONTACT + PROGRAM + CTA + FOOTER ═══ -->
+    
+    <!-- PART A: CTA Banner -->
+    <section class="bg-primary-dark bg-smile-pattern py-16 md:py-20">
+        <div class="max-w-[700px] mx-auto px-6 text-center relative z-10">
+            <h2 class="font-heading font-bold text-3xl md:text-[40px] text-white mb-4 leading-tight">
+                Începe cu un zâmbet sănătos
+            </h2>
+            <p class="text-[16px] text-white/70 mb-10">
+                Programează consultația ta gratuită astăzi și descoperă diferența.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+                <a href="#programare-form" class="w-full sm:w-auto text-center bg-accent text-white font-heading font-medium text-[16px] px-10 py-4 rounded-[50px] hover:scale-105 hover:shadow-lg transition-transform duration-300" id="btn-cta-final">
+                    Programează acum
+                </a>
+                <a href="tel:076588884" class="w-full sm:w-auto text-center border-2 border-white text-white font-medium text-[16px] px-10 py-3.5 rounded-[50px] hover:bg-white hover:text-primary-dark transition-colors duration-300" id="btn-call-final">
+                    Sună: 076 588 884
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PART B: Info + Program + Form -->
+    <section id="contact" class="bg-white py-20 md:py-24">
+        <div class="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+                
+                <!-- Col 1: Contact Info -->
+                <div class="flex-1 flex flex-col">
+                    <!-- Vertical Logo -->
+                    <div class="flex items-center gap-3 mb-8">
+                        <svg width="32" height="24" viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-accent">
+                            <path d="M4 8 Q20 28 36 8" stroke="currentColor" stroke-width="6" stroke-linecap="round" fill="transparent"/>
+                        </svg>
+                        <span class="font-heading font-bold text-xl tracking-tight text-primary-dark lowercase mt-1 leading-none">my dental<br>clinic</span>
+                    </div>
+                    
+                    <ul class="space-y-4 text-[14px] text-primary-dark">
+                        <li class="flex items-start gap-3">
+                            <iconify-icon icon="lucide:map-pin" class="text-accent mt-1 text-lg"></iconify-icon>
+                            <span>str. Constantin Brâncuși 112,<br>MD-2060, Chișinău</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <iconify-icon icon="lucide:phone" class="text-accent text-lg"></iconify-icon>
+                            <a href="tel:076588884" class="hover:text-accent font-medium transition-colors">076 588 884</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <iconify-icon icon="lucide:mail" class="text-accent text-lg"></iconify-icon>
+                            <a href="mailto:contact@mydentalclinic.md" class="hover:text-accent font-medium transition-colors">contact@mydentalclinic.md</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <iconify-icon icon="lucide:globe" class="text-accent text-lg"></iconify-icon>
+                            <a href="#" class="hover:text-accent font-medium transition-colors">www.mydentalclinic.md</a>
+                        </li>
+                    </ul>
+
+                    <div class="mt-10 flex gap-3">
+                        <a href="#" aria-label="Instagram" class="w-10 h-10 rounded-full bg-bg-light flex items-center justify-center text-primary-dark hover:bg-primary-dark hover:text-white transition-colors">
+                            <iconify-icon icon="lucide:instagram" class="text-lg"></iconify-icon>
+                        </a>
+                        <a href="#" aria-label="Facebook" class="w-10 h-10 rounded-full bg-bg-light flex items-center justify-center text-primary-dark hover:bg-primary-dark hover:text-white transition-colors">
+                            <iconify-icon icon="lucide:facebook" class="text-lg"></iconify-icon>
+                        </a>
+                        <a href="#" aria-label="TikTok" class="w-10 h-10 rounded-full bg-bg-light flex items-center justify-center text-primary-dark hover:bg-primary-dark hover:text-white transition-colors">
+                            <iconify-icon icon="mdi:tiktok" class="text-lg"></iconify-icon>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Program -->
+                <div class="flex-1">
+                    <div class="bg-primary-dark rounded-[16px] p-8 h-full flex flex-col justify-center">
+                        <svg width="24" height="18" viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white mb-6">
+                            <path d="M4 8 Q20 28 36 8" stroke="currentColor" stroke-width="6" stroke-linecap="round" fill="transparent"/>
+                        </svg>
+                        <h3 class="font-heading font-bold text-[14px] text-white tracking-[1px] uppercase mb-6">
+                            Program de lucru
+                        </h3>
+                        <ul class="text-[14px] text-white space-y-3 leading-[1.8]">
+                            <li class="flex justify-between border-b border-white/10 pb-2">
+                                <span class="opacity-80">Luni - Vineri:</span>
+                                <span class="font-medium">09:00 - 19:00</span>
+                            </li>
+                            <li class="flex justify-between border-b border-white/10 pb-2">
+                                <span class="opacity-80">Sâmbătă:</span>
+                                <span class="font-medium">09:00 - 14:00</span>
+                            </li>
+                            <li class="flex justify-between pt-1">
+                                <span class="opacity-80">Duminică:</span>
+                                <span class="font-medium text-accent bg-white/10 px-2 rounded text-xs py-1">Zi liberă</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Col 3: Form -->
+                <div class="flex-1" id="programare-form">
+                    <div class="bg-white rounded-[16px] p-8 shadow-subtle border border-surface">
+                        <h3 class="font-heading font-medium text-[18px] text-primary-dark mb-6">
+                            Trimite un mesaj
+                        </h3>
+                        <form class="flex flex-col gap-4">
+                            <div>
+                                <label for="nume" class="sr-only">Nume complet</label>
+                                <input type="text" id="nume" placeholder="Nume complet" class="w-full bg-white border border-neutral/60 text-primary-dark text-[14px] px-4 py-3 rounded-[8px] placeholder-primary-dark/40 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all">
+                            </div>
+                            <div>
+                                <label for="telefon" class="sr-only">Telefon</label>
+                                <input type="tel" id="telefon" placeholder="Telefon" class="w-full bg-white border border-neutral/60 text-primary-dark text-[14px] px-4 py-3 rounded-[8px] placeholder-primary-dark/40 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all">
+                            </div>
+                            <div>
+                                <label for="serviciu" class="sr-only">Serviciu dorit</label>
+                                <select id="serviciu" class="w-full bg-white border border-neutral/60 text-primary-dark text-[14px] px-4 py-3 rounded-[8px] focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all appearance-none">
+                                    <option value="" disabled selected class="text-primary-dark/40">Selectează serviciu</option>
+                                    <option value="general">Stomatologie generală</option>
+                                    <option value="endo">Endodonție</option>
+                                    <option value="orto">Ortodonție</option>
+                                    <option value="chirurgie">Chirurgie orală</option>
+                                    <option value="estetica">Estetică dentară</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="mesaj" class="sr-only">Mesaj (opțional)</label>
+                                <textarea id="mesaj" placeholder="Mesaj (opțional)" rows="3" class="w-full bg-white border border-neutral/60 text-primary-dark text-[14px] px-4 py-3 rounded-[8px] placeholder-primary-dark/40 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all resize-y min-h-[100px]"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-accent text-white font-heading font-medium text-[16px] py-3.5 rounded-[8px] hover:bg-[#8A092E] transition-colors mt-2">
+                                Trimite →
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-dark border-t border-white/10">
+        <div class="max-w-[1440px] mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-[13px] text-white/50 text-center md:text-left">
+                &copy; 2025 My Dental Clinic &middot; Toate drepturile rezervate
+            </div>
+            <div class="flex gap-6 text-[12px] text-white/50">
+                <a href="#" class="hover:text-white hover:underline transition-all" id="footer-privacy">Politica de confidențialitate</a>
+                <a href="#" class="hover:text-white hover:underline transition-all" id="footer-gdpr">GDPR</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

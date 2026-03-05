@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Libre Franklin", sans-serif;
+    color: #0E2338;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    min-width: 320px;
+  }
+  #root { min-height: 100vh; }
+}
+
+@layer utilities {
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+
+  .animate-fade-in-up { animation-fill-mode: both; }
+  .animate-fade-in    { animation-fill-mode: both; }
+
+  .bg-smile-pattern {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 100 100"><path d="M20,40 Q50,70 80,40" stroke="%23FFFFFF" stroke-width="6" stroke-linecap="round" fill="transparent"/></svg>');
+    background-size: 80px 80px;
+  }
+}
