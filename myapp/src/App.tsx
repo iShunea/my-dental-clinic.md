@@ -648,6 +648,23 @@ function Contact() {
                   options={SERVICES.map(s => s.title)}
                   placeholder="Selectează serviciu"
                 />
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="relative">
+                    <input
+                      type="date"
+                      min={new Date().toISOString().split('T')[0]}
+                      className="w-full bg-white border border-neutral/60 text-primary-dark text-[14px] px-4 py-3 rounded-[8px] focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent appearance-none [&::-webkit-calendar-picker-indicator]:opacity-0 [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:inset-0 [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:cursor-pointer"
+                      style={{ colorScheme: 'light' }}
+                    />
+                    <Icon icon="lucide:calendar" className="absolute right-3 top-1/2 -translate-y-1/2 text-primary-dark/40 text-sm pointer-events-none" />
+                  </div>
+                  <CustomSelect
+                    value={''}
+                    onChange={() => {}}
+                    options={['09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30']}
+                    placeholder="Ora dorită"
+                  />
+                </div>
                 <textarea placeholder="Mesaj (opțional)" rows={3} className="w-full bg-white border border-neutral/60 text-primary-dark text-[14px] px-4 py-3 rounded-[8px] focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent resize-none" />
                 <button type="submit" className="w-full bg-accent text-white font-heading font-medium text-[16px] py-3.5 rounded-[8px] hover:bg-[#8A092E] transition-colors mt-2">Trimite →</button>
               </form>
