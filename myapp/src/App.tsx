@@ -352,18 +352,15 @@ function Services() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {SERVICES.map((it, i) => (
-              <div key={it.title} className="group bg-white rounded-[16px] p-7 shadow-subtle hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-t-[3px] border-transparent hover:border-accent flex flex-col items-start cursor-pointer">
+              <div key={it.title} onClick={() => setActiveModal(it)} className="group bg-white rounded-[16px] p-7 shadow-subtle hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-t-[3px] border-transparent hover:border-accent flex flex-col items-start cursor-pointer">
                 <div className="w-10 h-10 rounded-full bg-bg-light text-accent flex items-center justify-center mb-5">
                   <Icon icon={`lucide:${it.icon}`} className="text-xl" />
                 </div>
                 <h3 className="font-heading font-medium text-[17px] text-primary-dark mb-2">{it.title}</h3>
                 <p className="text-[14px] text-primary-dark/60 mb-4 flex-grow">{it.desc}</p>
-                <button
-                  onClick={() => setActiveModal(it)}
-                  className="text-accent font-medium text-[14px] flex items-center gap-1 group-hover:underline underline-offset-4"
-                >
+                <span className="text-accent font-medium text-[14px] flex items-center gap-1 group-hover:underline underline-offset-4">
                   Află mai mult <Icon icon="lucide:arrow-right" className="text-xs" />
-                </button>
+                </span>
               </div>
             ))}
           </div>
