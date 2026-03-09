@@ -14,9 +14,9 @@ const OPEN_DAY = {
 }
 
 const FREE_BENEFITS = [
-  { num: '1', title: 'Radiografie panoramică', desc: 'Vedere completă a arcadelor dentare în format digital, în valoare de 350 MDL', icon: 'scan-line' },
-  { num: '2', title: 'Consultație stomatologică', desc: 'Examinare completă cu medicul specialist și identificarea problemelor dentare', icon: 'stethoscope' },
-  { num: '3', title: 'Plan de tratament', desc: 'Plan personalizat cu priorități și estimare de costuri, fără obligații', icon: 'clipboard-list' },
+  { num: '1', title: 'Radiografie panoramică', desc: 'Vedere completă a arcadelor dentare în format digital, în valoare de 350 MDL', icon: 'scan-line', img: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80' },
+  { num: '2', title: 'Consultație stomatologică', desc: 'Examinare completă cu medicul specialist și identificarea problemelor dentare', icon: 'stethoscope', img: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80' },
+  { num: '3', title: 'Plan de tratament', desc: 'Plan personalizat cu priorități și estimare de costuri, fără obligații', icon: 'clipboard-list', img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80' },
 ]
 
 const SERVICES_OPENDAY = [
@@ -41,12 +41,12 @@ const SERVICES_OPENDAY = [
 ]
 
 const DOCTORS = [
-  { name: 'Dr. Ana Rusu', specialty: 'Stomatologie generală & Estetică', exp: '12 ani experiență', bio: 'Specializată în estetică dentară la clinici din Italia și Germania. Expertă în fațete ceramice și albire profesională.', initials: 'AR' },
-  { name: 'Dr. Ion Popescu', specialty: 'Chirurgie orală & Implanturi', exp: '18 ani experiență', bio: 'Chirurg cu 2.000+ implanturi montate. Fellow al Asociației Europene de Implantologie. Conferențiar la congrese internaționale.', initials: 'IP' },
-  { name: 'Dr. Maria Ciobanu', specialty: 'Ortodonție', exp: '10 ani experiență', bio: 'Certificată Invisalign și 3M Unitek. Tratamente ortodontice pentru copii și adulți cu aparate metalice, ceramice și alinere.', initials: 'MC' },
-  { name: 'Dr. Vasile Grigore', specialty: 'Endodonție', exp: '15 ani experiență', bio: 'Endodontist cu microscop Carl Zeiss. Specialist în retreatamente și canale calcifiate cu rata de succes de 97%.', initials: 'VG' },
-  { name: 'Dr. Elena Botnaru', specialty: 'Pedodonție', exp: '8 ani experiență', bio: 'Medic stomatolog pediatric cu training în Franța. Abordare bazată pe joc și empatie pentru cele mai mici vârste.', initials: 'EB' },
-  { name: 'Dr. Andrei Lungu', specialty: 'Parodontologie', exp: '11 ani experiență', bio: 'Parodontolog cu formare la Universitatea din Viena. Specialist în tratamente non-chirurgicale și chirurgie parodontală avansată.', initials: 'AL' },
+  { name: 'Dr. Ana Rusu', specialty: 'Stomatologie generală & Estetică', exp: '12 ani experiență', bio: 'Specializată în estetică dentară la clinici din Italia și Germania. Expertă în fațete ceramice și albire profesională.', initials: 'AR', img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80' },
+  { name: 'Dr. Ion Popescu', specialty: 'Chirurgie orală & Implanturi', exp: '18 ani experiență', bio: 'Chirurg cu 2.000+ implanturi montate. Fellow al Asociației Europene de Implantologie. Conferențiar la congrese internaționale.', initials: 'IP', img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80' },
+  { name: 'Dr. Maria Ciobanu', specialty: 'Ortodonție', exp: '10 ani experiență', bio: 'Certificată Invisalign și 3M Unitek. Tratamente ortodontice pentru copii și adulți cu aparate metalice, ceramice și alinere.', initials: 'MC', img: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80' },
+  { name: 'Dr. Vasile Grigore', specialty: 'Endodonție', exp: '15 ani experiență', bio: 'Endodontist cu microscop Carl Zeiss. Specialist în retreatamente și canale calcifiate cu rata de succes de 97%.', initials: 'VG', img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80' },
+  { name: 'Dr. Elena Botnaru', specialty: 'Pedodonție', exp: '8 ani experiență', bio: 'Medic stomatolog pediatric cu training în Franța. Abordare bazată pe joc și empatie pentru cele mai mici vârste.', initials: 'EB', img: 'https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=400&q=80' },
+  { name: 'Dr. Andrei Lungu', specialty: 'Parodontologie', exp: '11 ani experiență', bio: 'Parodontolog cu formare la Universitatea din Viena. Specialist în tratamente non-chirurgicale și chirurgie parodontală avansată.', initials: 'AL', img: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&q=80' },
 ]
 
 const REASONS = [
@@ -298,9 +298,20 @@ function Hero({ onRegister }: { onRegister: () => void }) {
             </div>
           </div>
 
-          {/* Right: calendar card */}
-          <div className="w-full lg:w-[45%] animate-fade-in delay-300 flex justify-center">
-            <div className="bg-white rounded-[24px] shadow-2xl overflow-hidden max-w-[360px] w-full">
+          {/* Right: calendar card + hero image */}
+          <div className="w-full lg:w-[45%] animate-fade-in delay-300 flex flex-col gap-4 items-center">
+            <div className="w-full max-w-[420px] h-[220px] rounded-[20px] overflow-hidden shadow-2xl relative">
+              <img
+                src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=840&q=80"
+                alt="My Dental Clinic — cabinet modern"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/60 to-transparent" />
+              <div className="absolute bottom-4 left-4 text-white text-[13px] font-medium flex items-center gap-2">
+                <Icon icon="lucide:sparkles" className="text-accent" /> Cabinet modern · Tehnologie de top
+              </div>
+            </div>
+            <div className="bg-white rounded-[24px] shadow-2xl overflow-hidden max-w-[420px] w-full">
               {/* Calendar header */}
               <div className="bg-accent px-8 py-5 flex items-center justify-between">
                 <span className="text-white/80 font-medium text-[14px] uppercase tracking-wide">Aprilie 2025</span>
@@ -339,6 +350,7 @@ function Hero({ onRegister }: { onRegister: () => void }) {
       </div>
     </header>
   )
+
 }
 
 // ─── FREE BENEFITS ────────────────────────────────────────────────────────────
@@ -355,10 +367,12 @@ function FreeBenefits({ onRegister }: { onRegister: () => void }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {FREE_BENEFITS.map((b) => (
             <div key={b.num} className="bg-white rounded-[20px] overflow-hidden shadow-subtle hover:shadow-hover hover:-translate-y-1 transition-all duration-300">
-              <div className="bg-gradient-to-br from-surface to-bg-light/60 h-36 flex items-center justify-center relative">
-                <span className="absolute top-4 left-4 font-heading font-bold text-[64px] text-primary-dark/8 leading-none select-none">{b.num}</span>
-                <div className="w-16 h-16 rounded-full bg-white shadow-md flex items-center justify-center text-accent relative z-10">
-                  <Icon icon={`lucide:${b.icon}`} className="text-3xl" />
+              <div className="relative h-44 overflow-hidden">
+                <img src={b.img} alt={b.title} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/70 to-transparent" />
+                <span className="absolute top-3 left-4 font-heading font-bold text-[56px] text-white/20 leading-none select-none">{b.num}</span>
+                <div className="absolute bottom-3 left-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white">
+                  <Icon icon={`lucide:${b.icon}`} className="text-xl" />
                 </div>
               </div>
               <div className="p-6">
@@ -449,16 +463,21 @@ function Doctors() {
               style={{ transform: `translateX(calc(-${idx} * (100% / ${visible} + 8px)))` }}
             >
               {DOCTORS.map((doc) => (
-                <div key={doc.name} className="flex-shrink-0 w-[calc(33.333%-16px)] bg-white/5 border border-white/10 rounded-[20px] p-7 hover:bg-white/10 transition-all duration-300 flex flex-col items-center text-center">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent/30 to-bg-light/20 flex items-center justify-center text-white font-heading font-bold text-xl mb-4 border-2 border-white/20">
-                    {doc.initials}
+                <div key={doc.name} className="flex-shrink-0 w-[calc(33.333%-16px)] bg-white/5 border border-white/10 rounded-[20px] overflow-hidden hover:bg-white/10 transition-all duration-300 flex flex-col">
+                  <div className="relative h-52 overflow-hidden">
+                    <img src={doc.img} alt={doc.name} className="w-full h-full object-cover object-top" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 to-transparent" />
+                    <div className="absolute bottom-3 left-4 right-4">
+                      <h3 className="font-heading font-bold text-[16px] text-white">{doc.name}</h3>
+                      <p className="text-[12px] text-accent font-medium">{doc.specialty}</p>
+                    </div>
                   </div>
-                  <h3 className="font-heading font-bold text-[17px] text-white mb-1">{doc.name}</h3>
-                  <p className="text-[13px] text-accent font-medium mb-2">{doc.specialty}</p>
-                  <p className="text-[12px] text-white/50 flex items-center gap-1 mb-4">
-                    <Icon icon="lucide:briefcase" className="text-xs" /> {doc.exp}
-                  </p>
-                  <p className="text-[13px] text-white/60 leading-relaxed">{doc.bio}</p>
+                  <div className="p-5 flex flex-col flex-1">
+                    <p className="text-[12px] text-white/50 flex items-center gap-1 mb-3">
+                      <Icon icon="lucide:briefcase" className="text-xs" /> {doc.exp}
+                    </p>
+                    <p className="text-[13px] text-white/60 leading-relaxed">{doc.bio}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -466,11 +485,11 @@ function Doctors() {
 
           <div className="md:hidden grid grid-cols-1 gap-4">
             {DOCTORS.map((doc) => (
-              <div key={doc.name} className="bg-white/5 border border-white/10 rounded-[16px] p-5 flex items-start gap-4">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-accent/30 to-bg-light/20 flex items-center justify-center text-white font-heading font-bold flex-shrink-0">
-                  {doc.initials}
+              <div key={doc.name} className="bg-white/5 border border-white/10 rounded-[16px] overflow-hidden flex items-center gap-0">
+                <div className="w-20 h-20 flex-shrink-0 overflow-hidden">
+                  <img src={doc.img} alt={doc.name} className="w-full h-full object-cover object-top" />
                 </div>
-                <div>
+                <div className="p-4">
                   <h3 className="font-heading font-bold text-[15px] text-white">{doc.name}</h3>
                   <p className="text-[13px] text-accent font-medium">{doc.specialty}</p>
                   <p className="text-[12px] text-white/50">{doc.exp}</p>
@@ -490,6 +509,46 @@ function Doctors() {
             </div>
             <button onClick={next} disabled={idx === max} className="w-10 h-10 rounded-full border-2 border-white/20 flex items-center justify-center text-white hover:border-accent hover:text-accent transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
               <Icon icon="lucide:chevron-right" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ─── VIDEO PROMO ──────────────────────────────────────────────────────────────
+
+function VideoPromo({ onRegister }: { onRegister: () => void }) {
+  return (
+    <section className="bg-white py-20 md:py-24">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
+        <div className="max-w-[600px] mx-auto text-center mb-12">
+          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Clinica noastră</div>
+          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-primary-dark leading-tight mb-4">Descoperă My Dental Clinic</h2>
+          <p className="text-[16px] text-primary-dark/65">Un tur virtual prin clinică, echipamente și atmosfera în care îți vei face tratamentul</p>
+        </div>
+        <div className="max-w-[860px] mx-auto">
+          <div className="relative rounded-[20px] overflow-hidden shadow-2xl" style={{ paddingBottom: '56.25%' }}>
+            <iframe
+              className="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/MqnzXqpnYi4?rel=0&modestbranding=1"
+              title="My Dental Clinic — prezentare"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+          <div className="mt-8 grid grid-cols-3 gap-4">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=400&q=80" alt="Cabinet stomatologic" className="rounded-[12px] h-28 w-full object-cover shadow-subtle hover:scale-105 transition-transform duration-300" />
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffedac6b5b5?w=400&q=80" alt="Echipamente moderne" className="rounded-[12px] h-28 w-full object-cover shadow-subtle hover:scale-105 transition-transform duration-300" />
+            <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=400&q=80" alt="Echipa medicală" className="rounded-[12px] h-28 w-full object-cover shadow-subtle hover:scale-105 transition-transform duration-300" />
+          </div>
+          <div className="text-center mt-8">
+            <button
+              onClick={onRegister}
+              className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-12 py-4 rounded-[50px] hover:scale-105 hover:shadow-lg transition-all duration-300"
+            >
+              Vreau la Open Day <Icon icon="lucide:arrow-right" className="ml-1" />
             </button>
           </div>
         </div>
@@ -674,6 +733,7 @@ export default function App() {
         <FreeBenefits onRegister={openRegister} />
         <ServicesOpenDay onRegister={openRegister} />
         <Doctors />
+        <VideoPromo onRegister={openRegister} />
         <Reasons onRegister={openRegister} />
         <Testimonials onRegister={openRegister} />
         <Contact onRegister={openRegister} />
