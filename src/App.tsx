@@ -4,15 +4,15 @@ import { Icon } from '@iconify/react'
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
 const OPEN_DAY = {
-  date: '19 aprilie 2025',
+  date: '19 aprilie 2026',
   dateShort: '19 APR',
-  year: '2025',
+  year: '2026',
   time: '09:00 – 18:00',
   address: 'str. Constantin Brâncuși 112, Chișinău',
   phone: '076 588 884',
   spotsLeft: 12,
   // Data evenimentului pentru countdown
-  eventDate: new Date('2025-04-19T09:00:00'),
+  eventDate: new Date('2026-04-19T09:00:00'),
 }
 
 const FREE_BENEFITS = [
@@ -307,9 +307,7 @@ function Hero({ onRegister }: { onRegister: () => void }) {
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left content */}
           <div className="w-full lg:w-[55%] flex flex-col items-start">
-            <div className="inline-flex items-center gap-2 bg-red-50 text-accent border border-accent/30 px-4 py-1.5 rounded-full text-[12px] font-bold uppercase tracking-[1px] mb-6">
-              <Icon icon="lucide:calendar-check" /> Doar o dată pe an
-            </div>
+
             <h1 className="font-heading font-bold text-4xl md:text-[60px] leading-[1.05] text-gray-900 max-w-[580px] mb-4 tracking-tight">
               OPEN WEEK<br />
               <span className="text-accent">My Dental Clinic</span>
@@ -661,7 +659,7 @@ function Doctors() {
         </div>
         <div className="relative rounded-[24px] overflow-hidden shadow-xl max-w-[960px] mx-auto border border-gray-100">
           <img
-            src="/team.jpg"
+            src="/photo_2026-03-10_16-48-25.jpg"
             alt="Echipa My Dental Clinic"
             className="w-full h-auto object-cover"
           />
