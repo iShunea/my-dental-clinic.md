@@ -14,9 +14,9 @@ const OPEN_DAY = {
 }
 
 const FREE_BENEFITS = [
-  { num: '1', title: 'Radiografie panoramică', desc: 'Vedere completă a arcadelor dentare în format digital, în valoare de 350 MDL', icon: 'scan-line', img: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80' },
+  { num: '1', title: 'Radiografie panoramică', desc: 'Vedere completă a arcadelor dentare în format digital — inclus gratuit în ziua evenimentului', icon: 'scan-line', img: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80' },
   { num: '2', title: 'Consultație stomatologică', desc: 'Examinare completă cu medicul specialist și identificarea problemelor dentare', icon: 'stethoscope', img: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80' },
-  { num: '3', title: 'Plan de tratament', desc: 'Plan personalizat cu priorități și estimare de costuri, fără obligații', icon: 'clipboard-list', img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80' },
+  { num: '3', title: 'Plan de tratament', desc: 'Plan personalizat cu priorități clare, fără obligații', icon: 'clipboard-list', img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80' },
 ]
 
 const SERVICES_OPENDAY = [
@@ -40,14 +40,6 @@ const SERVICES_OPENDAY = [
   },
 ]
 
-const DOCTORS = [
-  { name: 'Dr. Ana Rusu', specialty: 'Stomatologie generală & Estetică', exp: '12 ani experiență', bio: 'Specializată în estetică dentară la clinici din Italia și Germania. Expertă în fațete ceramice și albire profesională.', initials: 'AR', img: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&q=80' },
-  { name: 'Dr. Ion Popescu', specialty: 'Chirurgie orală & Implanturi', exp: '18 ani experiență', bio: 'Chirurg cu 2.000+ implanturi montate. Fellow al Asociației Europene de Implantologie. Conferențiar la congrese internaționale.', initials: 'IP', img: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&q=80' },
-  { name: 'Dr. Maria Ciobanu', specialty: 'Ortodonție', exp: '10 ani experiență', bio: 'Certificată Invisalign și 3M Unitek. Tratamente ortodontice pentru copii și adulți cu aparate metalice, ceramice și alinere.', initials: 'MC', img: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&q=80' },
-  { name: 'Dr. Vasile Grigore', specialty: 'Endodonție', exp: '15 ani experiență', bio: 'Endodontist cu microscop Carl Zeiss. Specialist în retreatamente și canale calcifiate cu rata de succes de 97%.', initials: 'VG', img: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&q=80' },
-  { name: 'Dr. Elena Botnaru', specialty: 'Pedodonție', exp: '8 ani experiență', bio: 'Medic stomatolog pediatric cu training în Franța. Abordare bazată pe joc și empatie pentru cele mai mici vârste.', initials: 'EB', img: 'https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=400&q=80' },
-  { name: 'Dr. Andrei Lungu', specialty: 'Parodontologie', exp: '11 ani experiență', bio: 'Parodontolog cu formare la Universitatea din Viena. Specialist în tratamente non-chirurgicale și chirurgie parodontală avansată.', initials: 'AL', img: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=400&q=80' },
-]
 
 const REASONS = [
   { icon: 'award', text: '10+ ani de activitate' },
@@ -63,10 +55,18 @@ const REASONS = [
 ]
 
 const TESTIMONIALS = [
-  { name: 'Maria C., 34 ani', text: 'Am venit cu multă teamă la prima vizită, dar echipa My Dental Clinic m-a făcut să mă simt în siguranță. Acum vin cu plăcere!' },
-  { name: 'Alexandru T., 42 ani', text: 'Cel mai profesionist cabinet din Chișinău. Tehnologie impresionantă și medici cu adevărat empatici. Recomand cu încredere.' },
-  { name: 'Natalia P., mamă', text: 'La Open Day-ul de anul trecut am obținut un plan complet de tratament gratuit. Economie reală și sfaturi extrem de valoroase!' },
-  { name: 'Victor M., 51 ani', text: 'Am primit implantul în aceeași zi. Procedura a durat sub o oră și nu am simțit nicio durere. Rezultatul este impecabil.' },
+  { name: 'Maria C., 34 ani', text: 'Am venit cu multă teamă la prima vizită, dar echipa My Dental Clinic m-a făcut să mă simt în siguranță. Acum vin cu plăcere!', source: 'Google' },
+  { name: 'Alexandru T., 42 ani', text: 'Cel mai profesionist cabinet din Chișinău. Tehnologie impresionantă și medici cu adevărat empatici. Recomand cu încredere.', source: 'Google' },
+  { name: 'Natalia P., mamă', text: 'La Open Day-ul de anul trecut am obținut un plan complet de tratament gratuit. Economie reală și sfaturi extrem de valoroase!', source: 'Facebook' },
+  { name: 'Victor M., 51 ani', text: 'Am primit implantul în aceeași zi. Procedura a durat sub o oră și nu am simțit nicio durere. Rezultatul este impecabil.', source: 'Google' },
+  { name: 'Elena D., 28 ani', text: 'Aparatele dentare montate de Dr. Ciobanu au schimbat totul. Personal atent, programări rapide, rezultate vizibile din prima lună.', source: 'Google' },
+  { name: 'Sergiu B., 45 ani', text: 'Am venit de urgență cu o durere insuportabilă. M-au primit imediat, m-au tratat profesionist și fără stres. Mulțumesc enorm!', source: 'Facebook' },
+  { name: 'Irina L., 39 ani', text: 'Fațetele ceramice arată fantastic. Zâmbesc mult mai mult acum și nu îmi vine să cred că a durat doar 2 ședințe.', source: 'Google' },
+  { name: 'Dumitru F., 62 ani', text: 'La vârsta mea eram sceptic față de implanturi. Dar Dr. Popescu m-a convins și m-a ghidat pas cu pas. Nu regret deloc.', source: 'Google' },
+  { name: 'Ioana M., 31 ani', text: 'Copilul meu de 7 ani a venit zâmbind la vizite datorită Dr. Botnaru. O minune de medic, cu răbdare nesfârșită.', source: 'Facebook' },
+  { name: 'Andrei K., 37 ani', text: 'Albirea profesională a depășit toate așteptările. Cabinet modern, personal amabil, echipă dedicată. Revin cu drag.', source: 'Google' },
+  { name: 'Valentina G., 55 ani', text: 'Sufer de frică dentară de 20 de ani. Echipa My Dental Clinic este prima cu care m-am simțit cu adevărat relaxată.', source: 'Google' },
+  { name: 'Mihai S., 48 ani', text: 'Radiografia panoramică gratuită de la Open Day mi-a arătat 3 probleme pe care nu le știam. Am economisit mult intervenind la timp.', source: 'Facebook' },
 ]
 
 // ─── SCROLL TO TOP ────────────────────────────────────────────────────────────
@@ -362,7 +362,7 @@ function FreeBenefits({ onRegister }: { onRegister: () => void }) {
         <div className="max-w-[600px] mx-auto text-center mb-14">
           <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Ce primești gratuit</div>
           <h2 className="font-heading font-bold text-3xl md:text-[40px] text-primary-dark leading-tight mb-4">3 servicii GRATUITE de Open Day</h2>
-          <p className="text-[16px] text-primary-dark/65">Valoare totală: <span className="font-bold text-primary-dark">1.200+ MDL</span> — oferit complet gratuit în ziua evenimentului</p>
+          <p className="text-[16px] text-primary-dark/65">CHECK-UP DENTAL COMPLET — oferit gratuit în ziua evenimentului</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {FREE_BENEFITS.map((b) => (
@@ -390,6 +390,52 @@ function FreeBenefits({ onRegister }: { onRegister: () => void }) {
             <Icon icon="lucide:phone" /> Sună și PROGRAMEAZĂ-TE! {OPEN_DAY.phone}
           </button>
           <p className="text-[13px] text-primary-dark/50 mt-3">Eveniment: {OPEN_DAY.date} · {OPEN_DAY.time}</p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ─── TOMBOLA & CADOURI ────────────────────────────────────────────────────────
+
+const TOMBOLA_PRIZES = [
+  { icon: 'sparkles', text: 'Albire profesională' },
+  { icon: 'droplets', text: 'Igienizare dentară' },
+  { icon: 'smile', text: 'Consultație estetică' },
+  { icon: 'gift', text: 'Kit de îngrijire dentară' },
+  { icon: 'star', text: 'Reducere la tratament' },
+  { icon: 'package', text: 'Surprize speciale' },
+]
+
+function TombolaCadouri({ onRegister }: { onRegister: () => void }) {
+  return (
+    <section className="bg-primary-dark py-20 md:py-24">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
+        <div className="max-w-[700px] mx-auto text-center mb-14">
+          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Nimeni nu face cadouri ca noi</div>
+          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-white leading-tight mb-4">Tombolă & Cadouri de Open Week</h2>
+          <p className="text-[16px] text-white/60">Fiecare participant are șansa să câștige. Cadouri surpriză pentru toți vizitatorii zilei!</p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
+          {TOMBOLA_PRIZES.map((prize) => (
+            <div key={prize.text} className="bg-white/5 border border-white/10 rounded-[20px] p-6 flex flex-col items-center text-center gap-4 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300">
+              <div className="w-14 h-14 rounded-full bg-accent/20 text-accent flex items-center justify-center">
+                <Icon icon={`lucide:${prize.icon}`} className="text-2xl" />
+              </div>
+              <span className="text-[15px] font-medium text-white leading-snug">{prize.text}</span>
+            </div>
+          ))}
+        </div>
+        <div className="max-w-[600px] mx-auto bg-accent/20 border border-accent/40 rounded-[20px] p-8 text-center">
+          <Icon icon="lucide:gift" className="text-accent text-4xl mb-4 mx-auto block" />
+          <p className="text-white font-heading font-bold text-[18px] mb-2">Înscrie-te și participi automat la tombolă!</p>
+          <p className="text-white/60 text-[14px] mb-6">Toți participanții înregistrați la Open Week intră în tragerea la sorți pentru cadouri speciale</p>
+          <button
+            onClick={onRegister}
+            className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-10 py-3.5 rounded-[50px] hover:bg-[#8A092E] hover:scale-105 transition-all duration-300"
+          >
+            Vreau să particip <Icon icon="lucide:arrow-right" className="ml-1" />
+          </button>
         </div>
       </div>
     </section>
@@ -441,76 +487,42 @@ function ServicesOpenDay({ onRegister }: { onRegister: () => void }) {
 // ─── DOCTORS ──────────────────────────────────────────────────────────────────
 
 function Doctors() {
-  const [idx, setIdx] = useState(0)
-  const visible = 3
-  const max = DOCTORS.length - visible
-  const prev = () => setIdx(i => Math.max(0, i - 1))
-  const next = () => setIdx(i => Math.min(max, i + 1))
-
   return (
     <section id="echipa" className="bg-primary-dark py-20 md:py-24">
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="max-w-[600px] mx-auto text-center mb-14">
-          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Medicii noștri</div>
+          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Echipa noastră</div>
           <h2 className="font-heading font-bold text-3xl md:text-[40px] text-white leading-tight mb-4">Specialiști cu experiență și dedicație</h2>
           <p className="text-[16px] text-white/60">Profesioniști certificați, permanent la curent cu tehnicile stomatologice moderne</p>
         </div>
-
-        <div className="relative">
-          <div className="hidden md:block overflow-hidden">
-            <div
-              className="flex gap-6 transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(calc(-${idx} * (100% / ${visible} + 8px)))` }}
-            >
-              {DOCTORS.map((doc) => (
-                <div key={doc.name} className="flex-shrink-0 w-[calc(33.333%-16px)] bg-white/5 border border-white/10 rounded-[20px] overflow-hidden hover:bg-white/10 transition-all duration-300 flex flex-col">
-                  <div className="relative h-52 overflow-hidden">
-                    <img src={doc.img} alt={doc.name} className="w-full h-full object-cover object-top" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 to-transparent" />
-                    <div className="absolute bottom-3 left-4 right-4">
-                      <h3 className="font-heading font-bold text-[16px] text-white">{doc.name}</h3>
-                      <p className="text-[12px] text-accent font-medium">{doc.specialty}</p>
-                    </div>
-                  </div>
-                  <div className="p-5 flex flex-col flex-1">
-                    <p className="text-[12px] text-white/50 flex items-center gap-1 mb-3">
-                      <Icon icon="lucide:briefcase" className="text-xs" /> {doc.exp}
-                    </p>
-                    <p className="text-[13px] text-white/60 leading-relaxed">{doc.bio}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="md:hidden grid grid-cols-1 gap-4">
-            {DOCTORS.map((doc) => (
-              <div key={doc.name} className="bg-white/5 border border-white/10 rounded-[16px] overflow-hidden flex items-center gap-0">
-                <div className="w-20 h-20 flex-shrink-0 overflow-hidden">
-                  <img src={doc.img} alt={doc.name} className="w-full h-full object-cover object-top" />
-                </div>
-                <div className="p-4">
-                  <h3 className="font-heading font-bold text-[15px] text-white">{doc.name}</h3>
-                  <p className="text-[13px] text-accent font-medium">{doc.specialty}</p>
-                  <p className="text-[12px] text-white/50">{doc.exp}</p>
-                </div>
-              </div>
+        <div className="relative rounded-[24px] overflow-hidden shadow-2xl max-w-[960px] mx-auto">
+          <img
+            src="/team.jpg"
+            alt="Echipa My Dental Clinic"
+            className="w-full h-auto object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/70 via-transparent to-transparent" />
+          <div className="absolute bottom-6 left-6 right-6 flex flex-wrap gap-3">
+            {['Stomatologie generală', 'Implanturi', 'Ortodonție', 'Chirurgie orală', 'Pedodonție', 'Estetică dentară'].map(spec => (
+              <span key={spec} className="bg-white/15 backdrop-blur-sm border border-white/20 text-white text-[12px] font-medium px-3 py-1.5 rounded-full">
+                {spec}
+              </span>
             ))}
           </div>
-
-          <div className="hidden md:flex items-center justify-center gap-3 mt-8">
-            <button onClick={prev} disabled={idx === 0} className="w-10 h-10 rounded-full border-2 border-white/20 flex items-center justify-center text-white hover:border-accent hover:text-accent transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
-              <Icon icon="lucide:chevron-left" />
-            </button>
-            <div className="flex gap-2">
-              {Array.from({ length: max + 1 }).map((_, i) => (
-                <button key={i} onClick={() => setIdx(i)} className={`w-2 h-2 rounded-full transition-all ${i === idx ? 'bg-accent w-5' : 'bg-white/20'}`} />
-              ))}
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-[960px] mx-auto">
+          {[
+            { icon: 'lucide:users', val: '12+', label: 'Medici specialiști' },
+            { icon: 'lucide:award', val: '15 ani', label: 'Experiență medie' },
+            { icon: 'lucide:globe', val: '8 țări', label: 'Training internațional' },
+            { icon: 'lucide:graduation-cap', val: '20+', label: 'Certificări obținute' },
+          ].map(stat => (
+            <div key={stat.label} className="bg-white/5 border border-white/10 rounded-[16px] p-5 text-center">
+              <Icon icon={stat.icon} className="text-accent text-2xl mx-auto mb-2" />
+              <div className="font-heading font-bold text-[22px] text-white">{stat.val}</div>
+              <div className="text-[12px] text-white/50 mt-0.5">{stat.label}</div>
             </div>
-            <button onClick={next} disabled={idx === max} className="w-10 h-10 rounded-full border-2 border-white/20 flex items-center justify-center text-white hover:border-accent hover:text-accent transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
-              <Icon icon="lucide:chevron-right" />
-            </button>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -520,37 +532,73 @@ function Doctors() {
 // ─── VIDEO PROMO ──────────────────────────────────────────────────────────────
 
 function VideoPromo({ onRegister }: { onRegister: () => void }) {
+  const REELS = [
+    'https://www.instagram.com/reel/DVjLdTlAaMo/',
+    'https://www.instagram.com/reel/DVjLdTlAaMo/',
+    'https://www.instagram.com/reel/DVjLdTlAaMo/',
+  ]
+
+  useEffect(() => {
+    const existingScript = document.querySelector('script[src*="instagram.com/embed"]')
+    if (!existingScript) {
+      const script = document.createElement('script')
+      script.src = 'https://www.instagram.com/embed.js'
+      script.async = true
+      script.onload = () => {
+        if ((window as any).instgrm?.Embeds?.process) (window as any).instgrm.Embeds.process()
+      }
+      document.body.appendChild(script)
+    } else {
+      setTimeout(() => {
+        if ((window as any).instgrm?.Embeds?.process) (window as any).instgrm.Embeds.process()
+      }, 300)
+    }
+  }, [])
+
   return (
-    <section className="bg-white py-20 md:py-24">
+    <section className="bg-surface py-20 md:py-24">
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
-        <div className="max-w-[600px] mx-auto text-center mb-12">
-          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Clinica noastră</div>
-          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-primary-dark leading-tight mb-4">Descoperă My Dental Clinic</h2>
-          <p className="text-[16px] text-primary-dark/65">Un tur virtual prin clinică, echipamente și atmosfera în care îți vei face tratamentul</p>
+        <div className="max-w-[600px] mx-auto text-center mb-14">
+          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Pe Instagram</div>
+          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-primary-dark leading-tight mb-4">
+            Descoperă clinica din interior
+          </h2>
+          <p className="text-[16px] text-primary-dark/65">Urmărește-ne pentru a vedea atmosfera, procedurile și echipa noastră</p>
         </div>
-        <div className="max-w-[860px] mx-auto">
-          <div className="relative rounded-[20px] overflow-hidden shadow-2xl" style={{ paddingBottom: '56.25%' }}>
-            <iframe
-              className="absolute inset-0 w-full h-full"
-              src="https://www.youtube.com/embed/MqnzXqpnYi4?rel=0&modestbranding=1"
-              title="My Dental Clinic — prezentare"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-          <div className="mt-8 grid grid-cols-3 gap-4">
-            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=400&q=80" alt="Cabinet stomatologic" className="rounded-[12px] h-28 w-full object-cover shadow-subtle hover:scale-105 transition-transform duration-300" />
-            <img src="https://images.unsplash.com/photo-1588776814546-1ffedac6b5b5?w=400&q=80" alt="Echipamente moderne" className="rounded-[12px] h-28 w-full object-cover shadow-subtle hover:scale-105 transition-transform duration-300" />
-            <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=400&q=80" alt="Echipa medicală" className="rounded-[12px] h-28 w-full object-cover shadow-subtle hover:scale-105 transition-transform duration-300" />
-          </div>
-          <div className="text-center mt-8">
-            <button
-              onClick={onRegister}
-              className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-12 py-4 rounded-[50px] hover:scale-105 hover:shadow-lg transition-all duration-300"
-            >
-              Vreau la Open Day <Icon icon="lucide:arrow-right" className="ml-1" />
-            </button>
-          </div>
+        <div className="flex flex-col md:flex-row gap-6 justify-center items-start max-w-[1100px] mx-auto">
+          {REELS.map((url, i) => (
+            <div key={i} className="flex-1 min-w-0 max-w-[340px] mx-auto w-full">
+              <blockquote
+                className="instagram-media"
+                data-instgrm-permalink={url}
+                data-instgrm-version="14"
+                style={{ background: '#FFF', border: '0', borderRadius: '20px', boxShadow: '0 4px 24px rgba(0,0,0,0.10)', margin: '0', maxWidth: '100%', minWidth: '100%', padding: '0', width: '100%' }}
+              >
+                <div className="flex flex-col items-center justify-center h-[500px] gap-3 bg-neutral/10 rounded-[20px]">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#f09433] via-[#dc2743] to-[#bc1888] flex items-center justify-center">
+                    <Icon icon="mdi:instagram" className="text-white text-3xl" />
+                  </div>
+                  <p className="text-[14px] text-primary-dark/60 font-medium animate-pulse">Se încarcă reelul…</p>
+                </div>
+              </blockquote>
+            </div>
+          ))}
+        </div>
+        <div className="text-center mt-10 flex flex-wrap justify-center gap-4">
+          <a
+            href="https://www.instagram.com/mydentalclinic.md/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border-2 border-accent text-accent font-heading font-bold text-[15px] px-8 py-3.5 rounded-[50px] hover:bg-accent hover:text-white transition-all duration-300"
+          >
+            <Icon icon="mdi:instagram" className="text-lg" /> Urmărește pe Instagram
+          </a>
+          <button
+            onClick={onRegister}
+            className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[15px] px-8 py-3.5 rounded-[50px] hover:scale-105 hover:shadow-lg transition-all duration-300"
+          >
+            Rezervă loc Open Day <Icon icon="lucide:arrow-right" className="ml-1" />
+          </button>
         </div>
       </div>
     </section>
@@ -606,20 +654,25 @@ function Testimonials({ onRegister }: { onRegister: () => void }) {
             <span>4.9 din 5 — bazat pe 1.900+ recenzii</span>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
           {TESTIMONIALS.map((t, i) => (
             <div key={i} className="bg-surface rounded-[16px] p-6 hover:shadow-hover hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
               <div className="absolute -top-4 -left-2 text-[80px] font-heading font-bold text-primary-dark/5 leading-none select-none">"</div>
               <p className="italic text-[14px] text-primary-dark/80 mb-4 leading-relaxed relative z-10">"{t.text}"</p>
               <div className="flex text-accent text-xs mb-3">★ ★ ★ ★ ★</div>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-neutral/60 shadow-sm">
-                  <Icon icon="lucide:user" className="text-lg" />
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-neutral/60 shadow-sm">
+                    <Icon icon="lucide:user" className="text-lg" />
+                  </div>
+                  <div>
+                    <p className="font-heading font-medium text-[14px] text-primary-dark">{t.name}</p>
+                    <span className="text-[11px] text-primary-dark/50 flex items-center gap-1">Pacient verificat <Icon icon="lucide:check" className="text-[10px]" /></span>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-heading font-medium text-[14px] text-primary-dark">{t.name}</p>
-                  <span className="text-[11px] text-primary-dark/50 flex items-center gap-1">Pacient verificat <Icon icon="lucide:check" className="text-[10px]" /></span>
-                </div>
+                <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full ${t.source === 'Google' ? 'bg-blue-50 text-blue-600' : 'bg-blue-100 text-[#1877F2]'}`}>
+                  {t.source}
+                </span>
               </div>
             </div>
           ))}
@@ -731,6 +784,7 @@ export default function App() {
       <main>
         <Hero onRegister={openRegister} />
         <FreeBenefits onRegister={openRegister} />
+        <TombolaCadouri onRegister={openRegister} />
         <ServicesOpenDay onRegister={openRegister} />
         <Doctors />
         <VideoPromo onRegister={openRegister} />
