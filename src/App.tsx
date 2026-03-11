@@ -72,20 +72,6 @@ const REASONS = [
   { icon: 'clock', text: 'Programare online 24/7' },
 ]
 
-const TESTIMONIALS = [
-  { name: 'Maria C., 34 ani', text: 'Am venit cu multă teamă la prima vizită, dar echipa My Dental Clinic m-a făcut să mă simt în siguranță. Acum vin cu plăcere!', source: 'Google' },
-  { name: 'Alexandru T., 42 ani', text: 'Cel mai profesionist cabinet din Chișinău. Tehnologie impresionantă și medici cu adevărat empatici. Recomand cu încredere.', source: 'Google' },
-  { name: 'Natalia P., mamă', text: 'La Open Day-ul de anul trecut am obținut un plan complet de tratament gratuit. Economie reală și sfaturi extrem de valoroase!', source: 'Facebook' },
-  { name: 'Victor M., 51 ani', text: 'Am primit implantul în aceeași zi. Procedura a durat sub o oră și nu am simțit nicio durere. Rezultatul este impecabil.', source: 'Google' },
-  { name: 'Elena D., 28 ani', text: 'Aparatele dentare montate de Dr. Ciobanu au schimbat totul. Personal atent, programări rapide, rezultate vizibile din prima lună.', source: 'Google' },
-  { name: 'Sergiu B., 45 ani', text: 'Am venit de urgență cu o durere insuportabilă. M-au primit imediat, m-au tratat profesionist și fără stres. Mulțumesc enorm!', source: 'Facebook' },
-  { name: 'Irina L., 39 ani', text: 'Fațetele ceramice arată fantastic. Zâmbesc mult mai mult acum și nu îmi vine să cred că a durat doar 2 ședințe.', source: 'Google' },
-  { name: 'Dumitru F., 62 ani', text: 'La vârsta mea eram sceptic față de implanturi. Dar Dr. Popescu m-a convins și m-a ghidat pas cu pas. Nu regret deloc.', source: 'Google' },
-  { name: 'Ioana M., 31 ani', text: 'Copilul meu de 7 ani a venit zâmbind la vizite datorită Dr. Botnaru. O minune de medic, cu răbdare nesfârșită.', source: 'Facebook' },
-  { name: 'Andrei K., 37 ani', text: 'Albirea profesională a depășit toate așteptările. Cabinet modern, personal amabil, echipă dedicată. Revin cu drag.', source: 'Google' },
-  { name: 'Valentina G., 55 ani', text: 'Sufer de frică dentară de 20 de ani. Echipa My Dental Clinic este prima cu care m-am simțit cu adevărat relaxată.', source: 'Google' },
-  { name: 'Mihai S., 48 ani', text: 'Radiografia panoramică gratuită de la Open Day mi-a arătat 3 probleme pe care nu le știam. Am economisit mult intervenind la timp.', source: 'Facebook' },
-]
 
 // ─── COUNTDOWN HOOK ──────────────────────────────────────────────────────────
 
