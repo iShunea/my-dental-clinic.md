@@ -417,13 +417,13 @@ function DespreEveniment() {
         </div>
         <div className="prose max-w-none text-[16px] text-[#0E2338] leading-relaxed space-y-4">
           <p>
-            <strong>Open Week</strong> este un eveniment special dedicat sănătății dentare, organizat pentru prima dată în Moldova și care acoperă <strong>toate direcțiile stomatologice</strong>.
+            <strong>Open Week</strong> este un eveniment special dedicat sănătății dentare, organizat pentru prima dată în Moldova, care acoperă <strong>toate direcțiile stomatologice</strong>.
           </p>
           <p>
             Timp de <strong>6 zile</strong>, pacienții pot beneficia <strong>gratuit</strong> de consultații și investigații stomatologice pentru a afla starea reală a dinților și pentru a primi recomandări corecte de tratament.
           </p>
           <p>
-            Este ocazia perfectă să îți verifici sănătatea dentară și să discuți cu specialiștii despre <strong>cele mai potrivite soluții pentru zâmbetul tău</strong>.
+            Este ocazia perfectă să îți verifici sănătatea dentară și să discuți cu specialiștii <strong>MY DENTAL CLINIC</strong> despre cele mai potrivite soluții pentru zâmbetul tău.
           </p>
         </div>
 
@@ -500,71 +500,84 @@ function StatsBanner() {
 // ─── FREE BENEFITS ────────────────────────────────────────────────────────────
 
 function FreeBenefits({ onRegister }: { onRegister: () => void }) {
-  const [activeCard, setActiveCard] = useState<typeof FREE_BENEFITS[0] | null>(null)
+  const benefits = [
+    {
+      num: '01',
+      icon: 'scan-line',
+      title: 'Radiografie panoramică',
+      desc: 'Imagine digitală completă a dinților și maxilarelor — inclusă gratuit',
+      color: 'bg-blue-50',
+      iconColor: 'text-[#0E2338]',
+      iconBg: 'bg-[#0E2338]/10',
+    },
+    {
+      num: '02',
+      icon: 'stethoscope',
+      title: 'Consultație stomatologică',
+      desc: 'Examinare completă cu medicul specialist și identificarea problemelor dentare',
+      color: 'bg-rose-50',
+      iconColor: 'text-accent',
+      iconBg: 'bg-accent/10',
+    },
+    {
+      num: '03',
+      icon: 'clipboard-list',
+      title: 'Plan de tratament',
+      desc: 'Plan personalizat cu priorități clare, estimări de costuri — fără obligații',
+      color: 'bg-emerald-50',
+      iconColor: 'text-emerald-700',
+      iconBg: 'bg-emerald-100',
+    },
+    {
+      num: '04',
+      icon: 'cpu',
+      title: 'Scanare intraorală',
+      desc: 'Scanare 3D digitală de precizie a cavității orale — fără amprente clasice',
+      color: 'bg-violet-50',
+      iconColor: 'text-violet-700',
+      iconBg: 'bg-violet-100',
+    },
+  ]
   return (
     <section id="beneficii" className="bg-gray-50 py-20 md:py-24">
-      {/* Modal */}
-      {activeCard && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={() => setActiveCard(null)}>
-          <div className="bg-white rounded-[24px] overflow-hidden shadow-2xl max-w-[600px] w-full" onClick={(e) => e.stopPropagation()}>
-            <div className="relative aspect-[16/9] overflow-hidden">
-              <img src={activeCard.img} alt={activeCard.title} className="w-full h-full object-cover object-top" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <button onClick={() => setActiveCard(null)} className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/40 transition-colors">
-                <Icon icon="lucide:x" className="text-lg" />
-              </button>
-              <div className="absolute bottom-4 left-6 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white">
-                  <Icon icon={`lucide:${activeCard.icon}`} className="text-xl" />
-                </div>
-                <span className="font-heading font-bold text-[22px] text-white">{activeCard.title}</span>
-              </div>
-            </div>
-            <div className="p-8">
-              <p className="text-[16px] text-gray-600 leading-relaxed mb-6">{activeCard.desc}</p>
-              <button onClick={() => { onRegister(); setActiveCard(null) }} className="w-full bg-accent text-white font-heading font-bold text-[15px] py-3.5 rounded-[50px] hover:bg-[#A30B37] transition-colors">
-                Rezervă locul tău gratuit →
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="max-w-[600px] mx-auto text-center mb-14">
           <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Ce primești gratuit</div>
-          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4 whitespace-nowrap">4 servicii GRATUITE · 6–11 Aprilie</h2>
+          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">4 servicii GRATUITE · 6–11 Aprilie</h2>
           <p className="text-[16px] text-gray-500">CHECK-UP DENTAL COMPLET — oferit gratuit în toată perioada Open Week</p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-          {FREE_BENEFITS.map((b) => (
-            <div key={b.num} onClick={() => setActiveCard(b)} className="bg-white rounded-[20px] overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-              <div className="relative h-[220px] overflow-hidden">
-                <img src={b.img} alt={b.title} className="w-full h-full object-cover object-top" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <span className="absolute top-3 left-4 font-heading font-bold text-[56px] text-white/20 leading-none select-none">{b.num}</span>
-                <div className="absolute bottom-3 left-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white">
-                  <Icon icon={`lucide:${b.icon}`} className="text-xl" />
-                </div>
-                <div className="absolute bottom-3 right-4 w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white">
-                  <Icon icon="lucide:maximize-2" className="text-sm" />
-                </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
+          {benefits.map((b) => (
+            <div key={b.num} className={`${b.color} rounded-[20px] p-7 flex items-start gap-5 hover:shadow-md hover:-translate-y-1 transition-all duration-300`}>
+              <div className={`w-14 h-14 rounded-[14px] ${b.iconBg} flex items-center justify-center flex-shrink-0`}>
+                <Icon icon={`lucide:${b.icon}`} className={`text-2xl ${b.iconColor}`} />
               </div>
-              <div className="p-6">
-                <h3 className="font-heading font-bold text-[18px] text-[#0E2338] mb-2">{b.title}</h3>
-                <p className="text-[14px] text-gray-500 leading-relaxed">{b.desc}</p>
+              <div className="flex-1">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-heading font-bold text-[19px] text-[#0E2338]">{b.title}</span>
+                  <span className="text-[28px] font-heading font-bold text-black/10 leading-none ml-3">{b.num}</span>
+                </div>
+                <p className="text-[14px] text-gray-600 leading-relaxed">{b.desc}</p>
+                <div className="mt-4 inline-flex items-center gap-1.5 text-accent text-[13px] font-bold">
+                  <Icon icon="lucide:check-circle" className="text-base" /> Inclus gratuit
+                </div>
               </div>
             </div>
           ))}
         </div>
-        <div className="text-center">
+        <div className="bg-[#0E2338] rounded-[24px] p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <p className="text-white font-heading font-bold text-[20px] mb-1">Toate 4 servicii — 100% GRATUIT</p>
+            <p className="text-white/60 text-[14px]">Participând la Open Week beneficiezi gratuit de consultație, radiografie, scanare și plan de tratament</p>
+          </div>
           <button
             onClick={onRegister}
-            className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-12 py-4 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 hover:shadow-lg transition-all duration-300"
+            className="flex-shrink-0 inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[15px] px-8 py-3.5 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 transition-all duration-300 shadow-lg"
           >
-            <Icon icon="lucide:phone" /> Sună și PROGRAMEAZĂ-TE! +373 {OPEN_DAY.phone}
+            <Icon icon="lucide:phone" /> Rezervă locul gratuit →
           </button>
-          <p className="text-[13px] text-gray-400 mt-3">Perioada: {OPEN_DAY.dateRange} · {OPEN_DAY.time}</p>
         </div>
+        <p className="text-center text-[13px] text-gray-400 mt-4">Perioada: {OPEN_DAY.dateRange} · {OPEN_DAY.time}</p>
       </div>
     </section>
   )
@@ -735,23 +748,32 @@ function ServicesOpenDay({ onRegister }: { onRegister: () => void }) {
           <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">Ce tratamente vei putea discuta la Open Week</h2>
           <p className="text-[16px] text-gray-500">Medicii noștri specialiști vor fi prezenți pentru consultații individuale și răspunsuri la orice întrebare</p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-          {SERVICES_OPENDAY.map((s) => (
-            <div key={s.title} className="bg-gray-50 rounded-[20px] p-8 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-              <div className="w-12 h-12 rounded-full bg-[#E6E5EC] text-accent flex items-center justify-center mb-5">
-                <Icon icon={`lucide:${s.icon}`} className="text-2xl" />
+        <div className="flex flex-col lg:flex-row gap-8 items-start mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
+            {SERVICES_OPENDAY.map((s) => (
+              <div key={s.title} className="bg-gray-50 rounded-[20px] p-8 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-full bg-[#E6E5EC] text-accent flex items-center justify-center mb-5">
+                  <Icon icon={`lucide:${s.icon}`} className="text-2xl" />
+                </div>
+                <h3 className="font-heading font-bold text-[20px] text-[#0E2338] mb-2">{s.title}</h3>
+                <p className="text-[14px] text-gray-500 mb-5">{s.desc}</p>
+                <ul className="flex flex-col gap-2.5">
+                  {s.bullets.map(b => (
+                    <li key={b} className="flex items-start gap-2.5 text-[14px] text-[#0E2338]">
+                      <Icon icon="lucide:check-circle" className="text-accent flex-shrink-0 mt-0.5" /> {b}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="font-heading font-bold text-[20px] text-[#0E2338] mb-2">{s.title}</h3>
-              <p className="text-[14px] text-gray-500 mb-5">{s.desc}</p>
-              <ul className="flex flex-col gap-2.5">
-                {s.bullets.map(b => (
-                  <li key={b} className="flex items-start gap-2.5 text-[14px] text-[#0E2338]">
-                    <Icon icon="lucide:check-circle" className="text-accent flex-shrink-0 mt-0.5" /> {b}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            ))}
+          </div>
+          <div className="lg:w-[320px] flex-shrink-0 rounded-[20px] overflow-hidden shadow-xl sticky top-[110px]">
+            <img
+              src="/open-week-macheta2.png"
+              alt="Open Week MY DENTAL CLINIC — toate serviciile stomatologice"
+              className="w-full h-auto"
+            />
+          </div>
         </div>
         <div className="text-center">
           <button
@@ -915,16 +937,19 @@ function VideoPromo({ onRegister }: { onRegister: () => void }) {
 
 function CountdownBanner({ onRegister }: { onRegister: () => void }) {
   return (
-    <div className="bg-accent py-10">
+    <div className="bg-[#0E2338] border-y border-white/10 py-10">
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
-          <p className="text-white/80 text-[13px] font-bold uppercase tracking-wider mb-1">Timp rămas până la eveniment</p>
+          <div className="inline-flex items-center gap-2 bg-accent/20 text-accent text-[12px] font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-2">
+            <Icon icon="lucide:timer" /> Locuri limitate
+          </div>
           <p className="text-white font-heading font-bold text-[20px]">{OPEN_DAY.dateRange} · {OPEN_DAY.time}</p>
+          <p className="text-white/50 text-[13px] mt-0.5">{OPEN_DAY.address}</p>
         </div>
         <CountdownWidget />
         <button
           onClick={onRegister}
-          className="flex-shrink-0 bg-white text-accent font-heading font-bold text-[15px] px-8 py-3.5 rounded-[50px] hover:bg-gray-50 hover:scale-105 transition-all duration-300 shadow-md"
+          className="flex-shrink-0 bg-accent text-white font-heading font-bold text-[15px] px-8 py-3.5 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 transition-all duration-300 shadow-md"
         >
           Rezervă locul →
         </button>
