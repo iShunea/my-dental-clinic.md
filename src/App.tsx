@@ -411,13 +411,13 @@ function DespreEveniment() {
         </div>
         <div className="prose max-w-none text-[16px] text-[#0E2338] leading-relaxed space-y-4">
           <p>
-            <strong>Open Week</strong> este un eveniment special dedicat sănătății dentare, organizat pentru prima dată în Moldova, care acoperă <strong>toate direcțiile stomatologice</strong>.
+            <strong>Open Week</strong> este un eveniment special dedicat sănătății dentare, organizat <strong>pentru prima dată în Moldova</strong> și care acoperă <strong>toate direcțiile stomatologice</strong>.
           </p>
           <p>
-            Timp de <strong>6 zile</strong>, pacienții pot beneficia <strong>gratuit</strong> de consultații și investigații stomatologice pentru a afla starea reală a dinților și pentru a primi recomandări corecte de tratament.
+            Timp de <strong>6 zile</strong>, pacienții pot beneficia <strong>gratuit</strong> de consultații și investigații stomatologice pentru a afla starea reală a dinților și pentru a primi <strong>recomandări corecte de tratament</strong>.
           </p>
           <p>
-            Este ocazia perfectă să îți verifici sănătatea dentară și să discuți cu specialiștii <strong>MY DENTAL CLINIC</strong> despre cele mai potrivite soluții pentru zâmbetul tău.
+            Este ocazia perfectă să îți verifici <strong>sănătatea dentară</strong> și să discuți cu specialiștii <strong>MY DENTAL CLINIC</strong> despre <strong>cele mai potrivite soluții pentru zâmbetul tău</strong>.
           </p>
         </div>
 
