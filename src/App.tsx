@@ -621,13 +621,6 @@ function CheckupServices({ onRegister }: { onRegister: () => void }) {
           ))}
         </div>
 
-        <div className="mt-10 rounded-[20px] overflow-hidden shadow-md">
-          <img
-            src="/Banere prin site/modificari-2.png"
-            alt="Open Week MY DENTAL CLINIC — detalii eveniment"
-            className="w-full h-auto"
-          />
-        </div>
         <div className="mt-6 text-center">
           <p className="text-[14px] text-gray-500 flex items-center justify-center gap-2">
             <Icon icon="lucide:info" className="text-accent" />
