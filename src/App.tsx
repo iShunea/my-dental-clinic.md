@@ -369,23 +369,25 @@ function Hero({ onRegister }: { onRegister: () => void }) {
               </a>
             </div>
 
-            {/* Countdown */}
-            <div className="mt-4 bg-[#0E2338] rounded-[18px] px-6 py-5 inline-flex flex-col gap-2 shadow-lg">
-              <p className="text-[11px] font-bold text-white/60 uppercase tracking-[2px] flex items-center gap-2">
-                <Icon icon="lucide:timer" className="text-accent text-[14px]" /> Evenimentul începe în:
-              </p>
-              <CountdownWidget />
-            </div>
           </div>
 
-          {/* Right: poster */}
-          <div className="w-full lg:w-[45%] flex flex-col items-center">
+          {/* Right: poster + countdown */}
+          <div className="w-full lg:w-[45%] flex flex-col items-center gap-4">
             <div className="w-full max-w-[420px] rounded-[20px] overflow-hidden shadow-xl">
               <img
                 src="/Banere prin site/open-week-1.png"
                 alt="Open Week MY DENTAL CLINIC — poster oficial"
                 className="w-full h-auto"
               />
+            </div>
+            {/* Countdown sub poster */}
+            <div className="w-full max-w-[420px] bg-[#0E2338] rounded-[18px] px-6 py-5 flex flex-col gap-2 shadow-lg">
+              <p className="text-[11px] font-bold text-white/60 uppercase tracking-[2px] flex items-center gap-2">
+                <Icon icon="lucide:timer" className="text-accent text-[14px]" /> Evenimentul începe în:
+              </p>
+              <div className="flex justify-center">
+                <CountdownWidget />
+              </div>
             </div>
           </div>
         </div>
