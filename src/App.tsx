@@ -483,50 +483,74 @@ function StatsBanner() {
 function FreeBenefits({ onRegister }: { onRegister: () => void }) {
   return (
     <section id="beneficii" className="bg-gray-50 py-20 md:py-24">
-      <div className="max-w-[900px] mx-auto px-6 md:px-10">
-        <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Ce primești gratuit</div>
-        <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-6">Participând la Open Week beneficiezi <span className="text-accent">GRATUIT</span> de:</h2>
+      <div className="max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16">
+        {/* Header */}
+        <div className="mb-12">
+          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Ce primești gratuit</div>
+          <h2 className="font-heading font-bold text-3xl md:text-[42px] text-[#0E2338] leading-tight">
+            Participând la Open Week beneficiezi <span className="text-accent">GRATUIT</span> de:
+          </h2>
+        </div>
 
-        {/* 3 checkmarks principale */}
-        <ul className="flex flex-col gap-3 mb-8">
-          {[
-            'Consultație stomatologică completă',
-            'Tomografie dentară',
-            'Plan de tratament personalizat',
-          ].map(item => (
-            <li key={item} className="flex items-center gap-3 text-[17px] font-bold text-[#0E2338]">
-              <div className="w-7 h-7 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
-                <Icon icon="lucide:check" className="text-white text-sm" />
+        <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+          {/* Stânga — 3 carduri checkmark */}
+          <div className="flex-1 flex flex-col gap-4">
+            {[
+              { icon: 'stethoscope', title: 'Consultație stomatologică completă', desc: 'Examinare cu medicul specialist — inclus gratuit' },
+              { icon: 'scan-line', title: 'Tomografie dentară', desc: 'Imagine digitală completă a arcadelor dentare' },
+              { icon: 'clipboard-list', title: 'Plan de tratament personalizat', desc: 'Recomandări clare și priorități de tratament' },
+            ].map(item => (
+              <div key={item.title} className="bg-white rounded-[18px] p-5 flex items-center gap-4 shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
+                  <Icon icon={`lucide:${item.icon}`} className="text-white text-xl" />
+                </div>
+                <div>
+                  <p className="font-heading font-bold text-[16px] text-[#0E2338]">{item.title}</p>
+                  <p className="text-[13px] text-gray-500 mt-0.5">{item.desc}</p>
+                </div>
+                <Icon icon="lucide:check-circle" className="text-accent text-xl ml-auto flex-shrink-0" />
               </div>
-              {item}
-            </li>
-          ))}
-        </ul>
+            ))}
 
-        {/* Medicii noștri */}
-        <p className="text-[16px] text-[#0E2338] mb-4">Medicii noștri îți vor explica clar:</p>
-        <ul className="flex flex-col gap-2 mb-8 pl-2">
-          {[
-            'starea actuală a dinților tăi',
-            'ce tratamente sunt necesare',
-            'ce opțiuni ai pentru un zâmbet sănătos',
-          ].map(item => (
-            <li key={item} className="flex items-start gap-2 text-[15px] text-[#0E2338]">
-              <span className="text-accent font-bold mt-0.5">•</span> {item}
-            </li>
-          ))}
-        </ul>
+            {/* Fără costuri */}
+            <div className="bg-accent/10 rounded-[18px] p-5 flex items-center gap-3">
+              <Icon icon="lucide:shield-check" className="text-accent text-2xl flex-shrink-0" />
+              <p className="text-[15px] text-[#0E2338]">
+                Toate acestea <strong>fără costuri</strong> adiționale pe tot parcursul evenimentului.
+              </p>
+            </div>
+          </div>
 
-        <p className="text-[16px] text-[#0E2338] mb-10">
-          Toate acestea <strong>fără costuri</strong> adiționale pe tot parcursul evenimentului.
-        </p>
-
-        <button
-          onClick={onRegister}
-          className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-12 py-4 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 transition-all duration-300 shadow-lg"
-        >
-          Rezervă locul gratuit <Icon icon="lucide:arrow-right" className="ml-1" />
-        </button>
+          {/* Dreapta — card bleumarin cu lista medicilor + CTA */}
+          <div className="lg:w-[340px] bg-[#0E2338] rounded-[24px] p-8 flex flex-col justify-between">
+            <div>
+              <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center mb-5">
+                <Icon icon="lucide:user-round-check" className="text-white text-xl" />
+              </div>
+              <p className="font-heading font-bold text-white text-[20px] mb-5">Medicii noștri îți vor explica clar:</p>
+              <ul className="flex flex-col gap-4">
+                {[
+                  { icon: 'activity', text: 'starea actuală a dinților tăi' },
+                  { icon: 'clipboard-plus', text: 'ce tratamente sunt necesare' },
+                  { icon: 'smile', text: 'ce opțiuni ai pentru un zâmbet sănătos' },
+                ].map(item => (
+                  <li key={item.text} className="flex items-center gap-3 text-[14px] text-white/80">
+                    <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                      <Icon icon={`lucide:${item.icon}`} className="text-accent text-base" />
+                    </div>
+                    {item.text}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <button
+              onClick={onRegister}
+              className="mt-8 w-full inline-flex justify-center items-center gap-2 bg-accent text-white font-heading font-bold text-[15px] px-8 py-4 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 transition-all duration-300 shadow-lg"
+            >
+              Rezervă locul gratuit <Icon icon="lucide:arrow-right" />
+            </button>
+          </div>
+        </div>
       </div>
     </section>
   )
