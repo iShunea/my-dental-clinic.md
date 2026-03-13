@@ -60,7 +60,7 @@ const SERVICES_OPENDAY = [
 
 const REASONS = [
   { icon: 'award', text: '10+ ani de activitate' },
-  { icon: 'users', text: '35.000+ pacienți tratați' },
+  { icon: 'users', text: '1.000+ pacienți tratați' },
   { icon: 'star', text: '1.900+ recenzii pozitive' },
   { icon: 'building-2', text: '2 filiale în Chișinău' },
   { icon: 'cpu', text: 'Laborator propriu dentar' },
@@ -471,7 +471,7 @@ function DespreEveniment() {
 
 function StatsBanner() {
   const stats = [
-    { icon: 'users', val: '35.000+', label: 'Pacienți tratați' },
+    { icon: 'users', val: '1.000+', label: 'Pacienți tratați' },
     { icon: 'building-2', val: '22', label: 'Cabinete' },
     { icon: 'user-check', val: '50', label: 'Medici calificați' },
     { icon: 'calendar', val: '160', label: 'Pacienți/zilnic' },
