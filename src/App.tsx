@@ -1094,7 +1094,7 @@ function Contact({ onRegister }: { onRegister: () => void }) {
           <div className="flex-1 flex flex-col gap-6">
             <div className="bg-white rounded-[20px] p-8 shadow-sm">
               <div className="flex items-center gap-3 mb-6">
-                <img src="/logo orizontal 1-01 (1).svg" alt="MY DENTAL CLINIC" className="h-8 w-auto" />
+                <img src="/logo orizontal 1-01 (1).svg" alt="MY DENTAL CLINIC" className="h-[92px] w-auto" />
               </div>
               <ul className="space-y-3 text-[14px] text-[#0E2338] mb-6">
                 <li className="flex items-start gap-3"><Icon icon="lucide:map-pin" className="text-accent mt-1 flex-shrink-0" /><span>str. Constantin Brâncuși 112, Chișinău MD-2060</span></li>
