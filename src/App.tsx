@@ -5,14 +5,13 @@ import { Icon } from '@iconify/react'
 
 const OPEN_DAY = {
   date: '6 aprilie 2026',
-  dateRange: '6 – 11 aprilie 2026',
+  dateRange: '6 – 11 Aprilie 2026',
   dateShort: '6 APR',
   year: '2026',
   time: '09:00 – 18:00',
   address: 'str. Constantin Brâncuși 112, Chișinău',
   phone: '076 588 884',
   spotsLeft: 12,
-  // Data deschiderii pentru countdown
   eventDate: new Date('2026-04-06T09:00:00'),
 }
 
@@ -72,6 +71,42 @@ const REASONS = [
   { icon: 'clock', text: 'Programare online 24/7' },
 ]
 
+const TOMBOLA_PRIZES = [
+  { icon: 'sparkles', text: 'Albire profesională' },
+  { icon: 'droplets', text: 'Igienizare dentară' },
+  { icon: 'smile', text: 'Consultație estetică' },
+  { icon: 'gift', text: 'Kit de îngrijire dentară' },
+  { icon: 'star', text: 'Reducere la tratament' },
+  { icon: 'package', text: 'Surprize speciale' },
+]
+
+const GALLERY_PHOTOS = [
+  '/Poze landing/Poze landing/871A3835.jpg',
+  '/Poze landing/Poze landing/IMG_7725.jpg',
+  '/Poze landing/Poze landing/IMG_7944.jpg',
+  '/Poze landing/Poze landing/871A3847.jpg',
+  '/Poze landing/Poze landing/IMG_8050.jpg',
+  '/Poze landing/Poze landing/IMG_7574.jpg',
+  '/Poze landing/Poze landing/871A4475.jpg',
+  '/Poze landing/Poze landing/IMG_7972.jpg',
+  '/Poze landing/Poze landing/IMG_7512.jpg',
+  '/Poze landing/Poze landing/871A3844.jpg',
+  '/Poze landing/Poze landing/IMG_8465.jpg',
+  '/Poze landing/Poze landing/IMG_7932.jpg',
+]
+
+const TEAM_PHOTOS = [
+  '/POZE ECHIPA/871A4555.jpg',
+  '/POZE ECHIPA/871A4560.jpg',
+  '/POZE ECHIPA/871A4586.jpg',
+  '/POZE ECHIPA/871A4590.jpg',
+  '/POZE ECHIPA/871A4597.jpg',
+  '/POZE ECHIPA/871A4598.jpg',
+  '/POZE ECHIPA/871A4602.jpg',
+  '/POZE ECHIPA/871A4646.jpg',
+  '/POZE ECHIPA/871A4649.jpg',
+  '/POZE ECHIPA/viber_image_2026-03-12_11-16-13-185.jpg',
+]
 
 // ─── COUNTDOWN HOOK ──────────────────────────────────────────────────────────
 
@@ -190,7 +225,7 @@ function RegisterModal({ onClose }: { onClose: () => void }) {
           <Icon icon="lucide:x" className="text-sm" />
         </button>
         <div className="text-accent text-[12px] font-bold uppercase tracking-[1px] mb-2">Înregistrare gratuită</div>
-        <h3 className="font-heading font-bold text-[22px] text-gray-900 mb-1">Open Week — {OPEN_DAY.dateRange}</h3>
+        <h3 className="font-heading font-bold text-[22px] text-[#0E2338] mb-1">Open Week — {OPEN_DAY.dateRange}</h3>
         <p className="text-[13px] text-gray-500 mb-6">Completează formularul și te sunam noi pentru confirmare.</p>
         <form className="flex flex-col gap-3" onSubmit={e => e.preventDefault()}>
           <input type="text" placeholder="Nume și prenume" className="w-full bg-white border border-gray-200 text-gray-800 text-[14px] px-4 py-3 rounded-[8px] focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent" />
@@ -276,12 +311,12 @@ function CountdownWidget() {
       {units.map(({ val, label }, i) => (
         <div key={label} className="flex items-center gap-2">
           <div className="flex flex-col items-center">
-            <div className="bg-accent text-white font-heading font-bold text-[22px] md:text-[28px] w-[56px] md:w-[68px] h-[52px] md:h-[64px] rounded-[10px] flex items-center justify-center leading-none tabular-nums shadow-md">
+            <div className="bg-white/20 text-white font-heading font-bold text-[22px] md:text-[28px] w-[56px] md:w-[68px] h-[52px] md:h-[64px] rounded-[10px] flex items-center justify-center leading-none tabular-nums shadow-md border border-white/30">
               {String(val).padStart(2, '0')}
             </div>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-white/70 mt-1">{label}</span>
+            <span className="text-[10px] font-bold uppercase tracking-wider text-white mt-1">{label}</span>
           </div>
-          {i < 3 && <span className="text-accent font-bold text-[20px] mb-4 leading-none">:</span>}
+          {i < 3 && <span className="text-white/60 font-bold text-[20px] mb-4 leading-none">:</span>}
         </div>
       ))}
     </div>
@@ -293,73 +328,64 @@ function CountdownWidget() {
 function Hero({ onRegister }: { onRegister: () => void }) {
   return (
     <header className="relative pt-[120px] pb-16 md:pt-[140px] md:pb-24 overflow-hidden bg-white">
-      {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#E6E5EC] rounded-full -translate-y-1/3 translate-x-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#E6E5EC]/60 rounded-full translate-y-1/2 -translate-x-1/3 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/3 rounded-full pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left content */}
           <div className="w-full lg:w-[55%] flex flex-col items-start">
+            <div className="inline-flex items-center gap-2 bg-accent/10 text-accent text-[13px] font-bold px-4 py-2 rounded-full mb-4">
+              <Icon icon="lucide:calendar-range" /> Pentru prima dată în Moldova · 6 zile
+            </div>
 
-            <h1 className="font-heading font-bold text-4xl md:text-[60px] leading-[1.05] text-gray-900 max-w-[580px] mb-4 tracking-tight">
+            <h1 className="font-heading font-bold text-4xl md:text-[58px] leading-[1.05] text-[#0E2338] max-w-[580px] mb-3 tracking-tight">
               OPEN WEEK<br />
-              <span className="text-accent">MY DENTAL CLINIC</span>
+              <span className="text-accent">6–11 APRILIE</span>
             </h1>
-            <div className="inline-flex items-center gap-2 bg-accent/10 text-accent text-[14px] font-bold px-4 py-2 rounded-full mb-2">
-              <Icon icon="lucide:calendar-range" /> 6 – 11 Aprilie 2026 · Check-up gratuit
-            </div>
-            <div className="flex flex-wrap gap-4 mb-6">
-              <span className="flex items-center gap-2 text-gray-600 text-[15px]">
-                <Icon icon="lucide:map-pin" className="text-accent" /> {OPEN_DAY.address}
-              </span>
-              <span className="flex items-center gap-2 text-gray-600 text-[15px]">
-                <Icon icon="lucide:calendar" className="text-accent" /> {OPEN_DAY.dateRange}
-              </span>
-              <span className="flex items-center gap-2 text-gray-600 text-[15px]">
-                <Icon icon="lucide:clock" className="text-accent" /> {OPEN_DAY.time}
-              </span>
-            </div>
-            <p className="text-[16px] text-gray-500 max-w-[480px] mb-8 leading-relaxed">
-              Implanturi · Coroane & Fațete · Tratamente copii · Estetică dentară — toate sub același acoperiș
+
+            <p className="text-[17px] text-[#0E2338] font-semibold max-w-[500px] mb-6 leading-relaxed">
+              6 zile de consultații stomatologice GRATUITE
             </p>
 
-            {/* Free badges */}
-            <div className="flex flex-nowrap gap-3 mb-6">
-              <span className="inline-flex items-center gap-2 bg-accent text-white text-[16px] font-bold px-6 py-3 rounded-full shadow-md">
-                <Icon icon="lucide:gift" className="text-xl" /> Radiografie Gratuită
-              </span>
-              <span className="inline-flex items-center gap-2 bg-accent text-white text-[16px] font-bold px-6 py-3 rounded-full shadow-md">
-                <Icon icon="lucide:gift" className="text-xl" /> Consultație Gratuită
-              </span>
-              <span className="inline-flex items-center gap-2 bg-accent text-white text-[16px] font-bold px-6 py-3 rounded-full shadow-md">
-                <Icon icon="lucide:gift" className="text-xl" /> Plan de Tratament Gratuit
-              </span>
+            {/* Checkmarks */}
+            <ul className="flex flex-col gap-3 mb-5">
+              {['Consultație gratuită', 'Tomografie dentară gratuită', 'Plan de tratament personalizat'].map(item => (
+                <li key={item} className="flex items-center gap-3 text-[15px] text-[#0E2338]">
+                  <div className="w-6 h-6 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
+                    <Icon icon="lucide:check" className="text-white text-xs" />
+                  </div>
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            {/* Warning */}
+            <div className="flex items-center gap-2 bg-[#D3E3FD] text-[#0E2338] text-[13px] font-bold px-4 py-2.5 rounded-[10px] mb-6">
+              <Icon icon="lucide:alert-triangle" className="text-accent flex-shrink-0" />
+              Locurile sunt limitate. Rezervă-ți locul acum.
             </div>
 
-            {/* Countdown */}
-            <div className="mb-8">
-              <p className="text-[13px] font-bold text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
-                <Icon icon="lucide:timer" className="text-accent" /> Evenimentul începe în:
-              </p>
-              <CountdownWidget />
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
               <button
                 onClick={onRegister}
                 className="inline-flex justify-center items-center bg-accent text-white font-heading font-bold text-[16px] px-10 py-4 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 hover:shadow-lg transition-all duration-300"
               >
-                Înscrie-te GRATUIT <Icon icon="lucide:arrow-right" className="ml-2" />
+                Programează-te acum <Icon icon="lucide:arrow-right" className="ml-2" />
               </button>
               <a href={`tel:${OPEN_DAY.phone.replace(/\s/g,'')}`} className="text-gray-500 font-medium text-[15px] hover:text-accent transition-all flex items-center gap-2">
-                <Icon icon="lucide:phone" className="text-accent" /> {OPEN_DAY.phone}
+                <Icon icon="lucide:phone" className="text-accent" /> +373 {OPEN_DAY.phone}
               </a>
             </div>
 
-            <div className="mt-6 inline-flex items-center gap-2 bg-[#D3E3FD] text-[#0E2338] text-[13px] font-bold px-4 py-2 rounded-full">
-              <Icon icon="lucide:alert-triangle" /> Locurile sunt limitate! Au mai rămas doar {OPEN_DAY.spotsLeft} locuri
+            {/* Countdown */}
+            <div className="mt-2">
+              <p className="text-[12px] font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-2">
+                <Icon icon="lucide:timer" className="text-accent" /> Evenimentul începe în:
+              </p>
+              <div className="inline-flex bg-accent rounded-[14px] px-4 py-3">
+                <CountdownWidget />
+              </div>
             </div>
           </div>
 
@@ -368,7 +394,7 @@ function Hero({ onRegister }: { onRegister: () => void }) {
             <div className="w-full max-w-[420px] rounded-[20px] overflow-hidden shadow-xl">
               <img
                 src="/Open-week-final.png"
-                alt="Open Week My Dental Clinic — poster oficial"
+                alt="Open Week MY DENTAL CLINIC — poster oficial"
                 className="w-full h-auto"
               />
             </div>
@@ -376,6 +402,71 @@ function Hero({ onRegister }: { onRegister: () => void }) {
         </div>
       </div>
     </header>
+  )
+}
+
+// ─── DESPRE EVENIMENT ─────────────────────────────────────────────────────────
+
+function DespreEveniment() {
+  return (
+    <section className="bg-white py-16 md:py-20 border-t border-gray-100">
+      <div className="max-w-[900px] mx-auto px-6 md:px-10">
+        <div className="text-center mb-10">
+          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Despre eveniment</div>
+          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">Ce este Open Week?</h2>
+        </div>
+        <div className="prose max-w-none text-[16px] text-[#0E2338] leading-relaxed space-y-4">
+          <p>
+            <strong>Open Week</strong> este un eveniment special dedicat sănătății dentare, organizat pentru prima dată în Moldova și care acoperă <strong>toate direcțiile stomatologice</strong>.
+          </p>
+          <p>
+            Timp de <strong>6 zile</strong>, pacienții pot beneficia <strong>gratuit</strong> de consultații și investigații stomatologice pentru a afla starea reală a dinților și pentru a primi recomandări corecte de tratament.
+          </p>
+          <p>
+            Este ocazia perfectă să îți verifici sănătatea dentară și să discuți cu specialiștii despre <strong>cele mai potrivite soluții pentru zâmbetul tău</strong>.
+          </p>
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-gray-50 rounded-[20px] p-6">
+            <div className="text-accent font-bold text-[13px] uppercase tracking-wider mb-4">Serviciile incluse</div>
+            <ul className="flex flex-col gap-3">
+              {[
+                ['Implantologie', 'soluții moderne pentru înlocuirea dinților lipsă'],
+                ['Ortodonție', 'corectarea poziției dinților (brackets, alignere)'],
+                ['Protezare dentară', 'coroane, punți și restaurări dentare'],
+                ['Terapie dentară', 'tratarea cariilor și a problemelor dentare'],
+                ['Stomatologie estetică', 'pentru un zâmbet mai alb și mai armonios'],
+                ['Stomatologie pentru copii', 'consultații special dedicate celor mici'],
+              ].map(([title, desc]) => (
+                <li key={title} className="flex items-start gap-2.5 text-[14px] text-[#0E2338]">
+                  <Icon icon="lucide:check-circle" className="text-accent flex-shrink-0 mt-0.5 text-base" />
+                  <span><strong>{title}</strong> — {desc}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="bg-gray-50 rounded-[20px] p-6 flex flex-col justify-between">
+            <div>
+              <div className="text-accent font-bold text-[13px] uppercase tracking-wider mb-4">Echipamente moderne</div>
+              <p className="text-[14px] text-[#0E2338] leading-relaxed mb-4">
+                Clinica este dotată cu <strong>echipamente de ultimă generație</strong>, iar tratamentele pot fi realizate cu <strong>microscop dentar și laser</strong>, pentru precizie și confort maxim.
+              </p>
+              <p className="text-[14px] text-[#0E2338]">
+                Toate consultațiile sunt realizate de <strong>medici stomatologi specializați</strong>.
+              </p>
+            </div>
+            <div className="mt-6 flex items-center gap-3 bg-accent/10 rounded-[12px] p-4">
+              <Icon icon="lucide:calendar-range" className="text-accent text-2xl flex-shrink-0" />
+              <div>
+                <div className="font-heading font-bold text-[#0E2338] text-[15px]">{OPEN_DAY.dateRange}</div>
+                <div className="text-[13px] text-gray-500">{OPEN_DAY.time} · {OPEN_DAY.address}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
 
@@ -390,7 +481,7 @@ function StatsBanner() {
     { icon: 'hotel', val: '13', label: 'Camere hotel propriu' },
   ]
   return (
-    <div className="bg-accent py-6">
+    <div className="bg-[#0E2338] py-6">
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-0 md:divide-x md:divide-white/20">
           {stats.map(s => (
@@ -417,7 +508,7 @@ function FreeBenefits({ onRegister }: { onRegister: () => void }) {
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={() => setActiveCard(null)}>
           <div className="bg-white rounded-[24px] overflow-hidden shadow-2xl max-w-[600px] w-full" onClick={(e) => e.stopPropagation()}>
             <div className="relative aspect-[16/9] overflow-hidden">
-              <img src={activeCard.img} alt={activeCard.title} className="w-full h-full object-cover" />
+              <img src={activeCard.img} alt={activeCard.title} className="w-full h-full object-cover object-top" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               <button onClick={() => setActiveCard(null)} className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/40 transition-colors">
                 <Icon icon="lucide:x" className="text-lg" />
@@ -441,14 +532,14 @@ function FreeBenefits({ onRegister }: { onRegister: () => void }) {
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="max-w-[600px] mx-auto text-center mb-14">
           <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Ce primești gratuit</div>
-          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-gray-900 leading-tight mb-4 whitespace-nowrap">4 servicii GRATUITE · 6–11 Aprilie</h2>
+          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4 whitespace-nowrap">4 servicii GRATUITE · 6–11 Aprilie</h2>
           <p className="text-[16px] text-gray-500">CHECK-UP DENTAL COMPLET — oferit gratuit în toată perioada Open Week</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
           {FREE_BENEFITS.map((b) => (
             <div key={b.num} onClick={() => setActiveCard(b)} className="bg-white rounded-[20px] overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={b.img} alt={b.title} className="w-full h-full object-cover" />
+              <div className="relative h-[220px] overflow-hidden">
+                <img src={b.img} alt={b.title} className="w-full h-full object-cover object-top" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <span className="absolute top-3 left-4 font-heading font-bold text-[56px] text-white/20 leading-none select-none">{b.num}</span>
                 <div className="absolute bottom-3 left-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white">
@@ -459,7 +550,7 @@ function FreeBenefits({ onRegister }: { onRegister: () => void }) {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="font-heading font-bold text-[18px] text-gray-900 mb-2">{b.title}</h3>
+                <h3 className="font-heading font-bold text-[18px] text-[#0E2338] mb-2">{b.title}</h3>
                 <p className="text-[14px] text-gray-500 leading-relaxed">{b.desc}</p>
               </div>
             </div>
@@ -470,7 +561,7 @@ function FreeBenefits({ onRegister }: { onRegister: () => void }) {
             onClick={onRegister}
             className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-12 py-4 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 hover:shadow-lg transition-all duration-300"
           >
-            <Icon icon="lucide:phone" /> Sună și PROGRAMEAZĂ-TE! {OPEN_DAY.phone}
+            <Icon icon="lucide:phone" /> Sună și PROGRAMEAZĂ-TE! +373 {OPEN_DAY.phone}
           </button>
           <p className="text-[13px] text-gray-400 mt-3">Perioada: {OPEN_DAY.dateRange} · {OPEN_DAY.time}</p>
         </div>
@@ -484,18 +575,16 @@ function FreeBenefits({ onRegister }: { onRegister: () => void }) {
 function CheckupServices({ onRegister }: { onRegister: () => void }) {
   return (
     <section id="checkup" className="bg-white py-20 md:py-24 relative overflow-hidden">
-      {/* Decorative */}
       <div className="absolute right-0 top-0 w-[300px] h-[300px] bg-[#E6E5EC] rounded-full translate-x-1/2 -translate-y-1/2 pointer-events-none" />
       <div className="absolute left-0 bottom-0 w-[200px] h-[200px] bg-[#E6E5EC]/60 rounded-full -translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16 relative z-10">
         <div className="max-w-[640px] mx-auto text-center mb-14">
           <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Inclus în Open Week</div>
-          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-gray-900 leading-tight mb-4">Check-up Dental Complet</h2>
+          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">Check-up Dental Complet</h2>
           <p className="text-[16px] text-gray-500">Tot ce ai nevoie pentru a cunoaște starea sănătății tale dentare — într-o singură vizită</p>
         </div>
 
-        {/* Big highlight banner */}
         <div className="bg-accent rounded-[24px] p-8 md:p-12 mb-10 flex flex-col md:flex-row items-center gap-8 shadow-lg">
           <div className="flex-1 text-center md:text-left">
             <div className="inline-flex items-center gap-2 bg-white/20 text-white text-[12px] font-bold uppercase tracking-wider px-4 py-1.5 rounded-full mb-4">
@@ -527,7 +616,6 @@ function CheckupServices({ onRegister }: { onRegister: () => void }) {
           </div>
         </div>
 
-        {/* Services grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
           {CHECKUP_SERVICES.map((s) => (
             <div key={s.title} className="bg-gray-50 rounded-[16px] p-6 flex items-start gap-4 hover:shadow-sm transition-all duration-300">
@@ -535,7 +623,7 @@ function CheckupServices({ onRegister }: { onRegister: () => void }) {
                 <Icon icon={`lucide:${s.icon}`} className="text-xl" />
               </div>
               <div>
-                <h4 className="font-heading font-bold text-[15px] text-gray-900 mb-1">{s.title}</h4>
+                <h4 className="font-heading font-bold text-[15px] text-[#0E2338] mb-1">{s.title}</h4>
                 <p className="text-[13px] text-gray-500 leading-relaxed">{s.desc}</p>
               </div>
             </div>
@@ -555,22 +643,13 @@ function CheckupServices({ onRegister }: { onRegister: () => void }) {
 
 // ─── TOMBOLA & CADOURI ────────────────────────────────────────────────────────
 
-const TOMBOLA_PRIZES = [
-  { icon: 'sparkles', text: 'Albire profesională' },
-  { icon: 'droplets', text: 'Igienizare dentară' },
-  { icon: 'smile', text: 'Consultație estetică' },
-  { icon: 'gift', text: 'Kit de îngrijire dentară' },
-  { icon: 'star', text: 'Reducere la tratament' },
-  { icon: 'package', text: 'Surprize speciale' },
-]
-
 function TombolaCadouri({ onRegister }: { onRegister: () => void }) {
   return (
     <section className="bg-gray-50 py-20 md:py-24">
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="max-w-[700px] mx-auto text-center mb-14">
           <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Nimeni nu face cadouri ca noi</div>
-          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-gray-900 leading-tight mb-4">Tombolă & Cadouri de Open Week</h2>
+          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">Tombolă & Cadouri de Open Week</h2>
           <p className="text-[16px] text-gray-500">Fiecare participant are șansa să câștige. Cadouri surpriză pentru toți vizitatorii zilei!</p>
         </div>
         <div className="flex flex-col lg:flex-row gap-10 items-center">
@@ -581,7 +660,7 @@ function TombolaCadouri({ onRegister }: { onRegister: () => void }) {
                   <div className="w-14 h-14 rounded-full bg-[#E6E5EC] text-accent flex items-center justify-center">
                     <Icon icon={`lucide:${prize.icon}`} className="text-2xl" />
                   </div>
-                  <span className="text-[15px] font-medium text-gray-800 leading-snug">{prize.text}</span>
+                  <span className="text-[15px] font-medium text-[#0E2338] leading-snug">{prize.text}</span>
                 </div>
               ))}
             </div>
@@ -589,7 +668,7 @@ function TombolaCadouri({ onRegister }: { onRegister: () => void }) {
               <div className="w-16 h-16 rounded-full bg-[#E6E5EC] text-accent flex items-center justify-center mx-auto mb-4">
                 <Icon icon="lucide:gift" className="text-3xl" />
               </div>
-              <p className="text-gray-900 font-heading font-bold text-[18px] mb-2">Înscrie-te și participi automat la tombolă!</p>
+              <p className="text-[#0E2338] font-heading font-bold text-[18px] mb-2">Înscrie-te și participi automat la tombolă!</p>
               <p className="text-gray-500 text-[14px] mb-6">Toți participanții înregistrați la Open Week intră în tragerea la sorți pentru cadouri speciale</p>
               <button
                 onClick={onRegister}
@@ -612,12 +691,11 @@ function TombolaCadouri({ onRegister }: { onRegister: () => void }) {
   )
 }
 
-// ─── PROMO GALLERY ────────────────────────────────────────────────────────────
+// ─── PROMO GALLERY — 3 machete side by side ──────────────────────────────────
 
 function PromoGallery() {
   const posters = [
     { src: '/open-week-macheta3-fata.png', alt: 'Open Week — check-up gratuit', label: 'Check-up & Beneficii' },
-    { src: '/Open-week-final.png', alt: 'Open Week — poster oficial', label: 'Poster Oficial' },
     { src: '/open-week-macheta2.png', alt: 'Open Week — servicii stomatologice', label: 'Toate Serviciile' },
     { src: '/open-week-macheta-4-copii.png', alt: 'Open Week — tombolă copii', label: 'Tombolă & Copii' },
   ]
@@ -625,19 +703,19 @@ function PromoGallery() {
     <section className="bg-[#0E2338] py-16 md:py-20">
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="text-center mb-10">
-          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Materiale promoționale</div>
-          <h2 className="font-heading font-bold text-2xl md:text-[32px] text-white leading-tight">Open Week · 6–11 Aprilie 2026</h2>
+          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Evenimentul lunii</div>
+          <h2 className="font-heading font-bold text-2xl md:text-[32px] text-white leading-tight">Open Week · {OPEN_DAY.dateRange}</h2>
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[960px] mx-auto">
           {posters.map((p) => (
-            <div key={p.src} className="group relative rounded-[16px] overflow-hidden shadow-lg aspect-square">
+            <div key={p.src} className="group relative rounded-[20px] overflow-hidden shadow-xl">
               <img
                 src={p.src}
                 alt={p.alt}
-                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-              <span className="absolute bottom-3 left-3 right-3 text-white text-[13px] font-bold text-center leading-snug">{p.label}</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <span className="absolute bottom-4 left-0 right-0 text-white text-[14px] font-bold text-center px-3">{p.label}</span>
             </div>
           ))}
         </div>
@@ -654,42 +732,33 @@ function ServicesOpenDay({ onRegister }: { onRegister: () => void }) {
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="max-w-[640px] mx-auto text-center mb-14">
           <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Servicii prezentate</div>
-          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-gray-900 leading-tight mb-4">Ce tratamente vei putea discuta la Open Day</h2>
+          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">Ce tratamente vei putea discuta la Open Week</h2>
           <p className="text-[16px] text-gray-500">Medicii noștri specialiști vor fi prezenți pentru consultații individuale și răspunsuri la orice întrebare</p>
         </div>
-        <div className="flex flex-col lg:flex-row gap-8 mb-12 items-start">
-          <div className="lg:w-[280px] flex-shrink-0 rounded-[20px] overflow-hidden shadow-xl sticky top-[110px]">
-            <img
-              src="/open-week-macheta2.png"
-              alt="Open Week — toate serviciile stomatologice"
-              className="w-full h-auto"
-            />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
-            {SERVICES_OPENDAY.map((s) => (
-              <div key={s.title} className="bg-gray-50 rounded-[20px] p-8 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-full bg-[#E6E5EC] text-accent flex items-center justify-center mb-5">
-                  <Icon icon={`lucide:${s.icon}`} className="text-2xl" />
-                </div>
-                <h3 className="font-heading font-bold text-[20px] text-gray-900 mb-2">{s.title}</h3>
-                <p className="text-[14px] text-gray-500 mb-5">{s.desc}</p>
-                <ul className="flex flex-col gap-2.5">
-                  {s.bullets.map(b => (
-                    <li key={b} className="flex items-start gap-2.5 text-[14px] text-gray-700">
-                      <Icon icon="lucide:check-circle" className="text-accent flex-shrink-0 mt-0.5" /> {b}
-                    </li>
-                  ))}
-                </ul>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+          {SERVICES_OPENDAY.map((s) => (
+            <div key={s.title} className="bg-gray-50 rounded-[20px] p-8 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+              <div className="w-12 h-12 rounded-full bg-[#E6E5EC] text-accent flex items-center justify-center mb-5">
+                <Icon icon={`lucide:${s.icon}`} className="text-2xl" />
               </div>
-            ))}
-          </div>
+              <h3 className="font-heading font-bold text-[20px] text-[#0E2338] mb-2">{s.title}</h3>
+              <p className="text-[14px] text-gray-500 mb-5">{s.desc}</p>
+              <ul className="flex flex-col gap-2.5">
+                {s.bullets.map(b => (
+                  <li key={b} className="flex items-start gap-2.5 text-[14px] text-[#0E2338]">
+                    <Icon icon="lucide:check-circle" className="text-accent flex-shrink-0 mt-0.5" /> {b}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
         <div className="text-center">
           <button
             onClick={onRegister}
             className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-12 py-4 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 transition-all duration-300"
           >
-            Vreau să mă înscriu la Open Day <Icon icon="lucide:arrow-right" className="ml-1" />
+            Vreau să mă înscriu la Open Week <Icon icon="lucide:arrow-right" className="ml-1" />
           </button>
         </div>
       </div>
@@ -697,33 +766,57 @@ function ServicesOpenDay({ onRegister }: { onRegister: () => void }) {
   )
 }
 
-// ─── DOCTORS ──────────────────────────────────────────────────────────────────
+// ─── DOCTORS — galerie masonry ────────────────────────────────────────────────
 
 function Doctors() {
+  const [lightbox, setLightbox] = useState<string | null>(null)
   return (
     <section id="echipa" className="bg-gray-50 py-20 md:py-24">
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[300] flex items-center justify-center bg-black/85 backdrop-blur-sm p-4"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white/40 transition-colors"
+            onClick={() => setLightbox(null)}
+          >
+            <Icon icon="lucide:x" className="text-xl" />
+          </button>
+          <img
+            src={lightbox}
+            alt="Echipa MY DENTAL CLINIC"
+            className="max-w-full max-h-[90vh] rounded-[16px] object-contain shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="max-w-[600px] mx-auto text-center mb-14">
           <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Echipa noastră</div>
-          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-gray-900 leading-tight mb-4">12 Specialiști la Open Week</h2>
+          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">Specialiștii tăi la Open Week</h2>
           <p className="text-[16px] text-gray-500">Profesioniști certificați, permanent la curent cu tehnicile stomatologice moderne</p>
         </div>
-        <div className="relative rounded-[24px] overflow-hidden shadow-xl max-w-[960px] mx-auto">
-          <img
-            src="/photo_2026-03-10_16-48-25.jpg"
-            alt="Echipa My Dental Clinic"
-            className="w-full h-auto object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-          <div className="absolute bottom-6 left-6 right-6 flex flex-wrap gap-3">
-            {['Stomatologie generală', 'Implanturi', 'Ortodonție', 'Chirurgie orală', 'Pedodonție', 'Estetică dentară'].map(spec => (
-              <span key={spec} className="bg-white/20 backdrop-blur-sm text-white text-[12px] font-medium px-3 py-1.5 rounded-full">
-                {spec}
-              </span>
-            ))}
-          </div>
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 mb-12">
+          {TEAM_PHOTOS.map((src, i) => (
+            <div
+              key={i}
+              onClick={() => setLightbox(src)}
+              className="group relative mb-3 md:mb-4 overflow-hidden rounded-[12px] cursor-pointer break-inside-avoid"
+            >
+              <img
+                src={src}
+                alt={`Specialist MY DENTAL CLINIC ${i + 1}`}
+                loading="lazy"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                <Icon icon="lucide:zoom-in" className="text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-[960px] mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-[960px] mx-auto">
           {[
             { icon: 'lucide:users', val: '12', label: 'Medici la Open Week' },
             { icon: 'lucide:award', val: '15 ani', label: 'Experiență medie' },
@@ -732,7 +825,7 @@ function Doctors() {
           ].map(stat => (
             <div key={stat.label} className="bg-white rounded-[16px] p-5 text-center shadow-sm">
               <Icon icon={stat.icon} className="text-accent text-2xl mx-auto mb-2" />
-              <div className="font-heading font-bold text-[22px] text-gray-900">{stat.val}</div>
+              <div className="font-heading font-bold text-[22px] text-[#0E2338]">{stat.val}</div>
               <div className="text-[12px] text-gray-400 mt-0.5">{stat.label}</div>
             </div>
           ))}
@@ -773,7 +866,7 @@ function VideoPromo({ onRegister }: { onRegister: () => void }) {
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="max-w-[600px] mx-auto text-center mb-14">
           <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Pe Instagram</div>
-          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-gray-900 leading-tight mb-4">
+          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">
             Descoperă clinica din interior
           </h2>
           <p className="text-[16px] text-gray-500">Urmărește-ne pentru a vedea atmosfera, procedurile și echipa noastră</p>
@@ -810,7 +903,7 @@ function VideoPromo({ onRegister }: { onRegister: () => void }) {
             onClick={onRegister}
             className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[15px] px-8 py-3.5 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 hover:shadow-lg transition-all duration-300"
           >
-            Rezervă loc Open Day <Icon icon="lucide:arrow-right" className="ml-1" />
+            Rezervă loc Open Week <Icon icon="lucide:arrow-right" className="ml-1" />
           </button>
         </div>
       </div>
@@ -848,7 +941,7 @@ function Reasons({ onRegister }: { onRegister: () => void }) {
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="max-w-[600px] mx-auto text-center mb-14">
           <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">De ce noi</div>
-          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-gray-900 leading-tight mb-4">10 motive să alegi MY DENTAL CLINIC</h2>
+          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">10 motive să alegi MY DENTAL CLINIC</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
           {REASONS.map((r) => (
@@ -856,7 +949,7 @@ function Reasons({ onRegister }: { onRegister: () => void }) {
               <div className="w-10 h-10 rounded-full bg-[#E6E5EC] text-accent flex items-center justify-center">
                 <Icon icon={`lucide:${r.icon}`} className="text-lg" />
               </div>
-              <span className="text-[13px] font-medium text-gray-700 leading-snug">{r.text}</span>
+              <span className="text-[13px] font-medium text-[#0E2338] leading-snug">{r.text}</span>
             </div>
           ))}
         </div>
@@ -865,7 +958,7 @@ function Reasons({ onRegister }: { onRegister: () => void }) {
             onClick={onRegister}
             className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-12 py-4 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 hover:shadow-lg transition-all duration-300"
           >
-            Vreau la Open Day <Icon icon="lucide:arrow-right" className="ml-1" />
+            Vreau la Open Week <Icon icon="lucide:arrow-right" className="ml-1" />
           </button>
         </div>
       </div>
@@ -873,24 +966,9 @@ function Reasons({ onRegister }: { onRegister: () => void }) {
   )
 }
 
-// ─── TESTIMONIALS ─────────────────────────────────────────────────────────────
+// ─── GALERIE ATMOSFERA ────────────────────────────────────────────────────────
 
-const GALLERY_PHOTOS = [
-  '/Poze landing/Poze landing/871A3835.jpg',
-  '/Poze landing/Poze landing/IMG_7725.jpg',
-  '/Poze landing/Poze landing/IMG_7944.jpg',
-  '/Poze landing/Poze landing/871A3847.jpg',
-  '/Poze landing/Poze landing/IMG_8050.jpg',
-  '/Poze landing/Poze landing/IMG_7574.jpg',
-  '/Poze landing/Poze landing/871A4475.jpg',
-  '/Poze landing/Poze landing/IMG_7972.jpg',
-  '/Poze landing/Poze landing/IMG_7512.jpg',
-  '/Poze landing/Poze landing/871A3844.jpg',
-  '/Poze landing/Poze landing/IMG_8465.jpg',
-  '/Poze landing/Poze landing/IMG_7932.jpg',
-]
-
-function Testimonials({ onRegister }: { onRegister: () => void }) {
+function GalerieAtmosfera({ onRegister }: { onRegister: () => void }) {
   const [lightbox, setLightbox] = useState<string | null>(null)
   return (
     <section className="bg-white py-20 md:py-24">
@@ -907,7 +985,7 @@ function Testimonials({ onRegister }: { onRegister: () => void }) {
           </button>
           <img
             src={lightbox}
-            alt="Fotografie My Dental Clinic"
+            alt="Fotografie MY DENTAL CLINIC"
             className="max-w-full max-h-[90vh] rounded-[16px] object-contain shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           />
@@ -916,7 +994,7 @@ function Testimonials({ onRegister }: { onRegister: () => void }) {
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="max-w-[600px] mx-auto text-center mb-14">
           <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Din cabinet</div>
-          <h2 className="font-heading font-bold text-3xl md:text-[38px] text-gray-900 leading-tight mb-4">Atmosfera My Dental Clinic</h2>
+          <h2 className="font-heading font-bold text-3xl md:text-[38px] text-[#0E2338] leading-tight mb-4">Atmosfera MY DENTAL CLINIC</h2>
           <p className="text-[15px] text-gray-500">Echipamente moderne, spații prietenoase, medici dedicați</p>
         </div>
         <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 mb-12">
@@ -928,7 +1006,7 @@ function Testimonials({ onRegister }: { onRegister: () => void }) {
             >
               <img
                 src={src}
-                alt={`My Dental Clinic — fotografie ${i + 1}`}
+                alt={`MY DENTAL CLINIC — fotografie ${i + 1}`}
                 loading="lazy"
                 className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -943,7 +1021,7 @@ function Testimonials({ onRegister }: { onRegister: () => void }) {
             onClick={onRegister}
             className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-12 py-4 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 hover:shadow-lg transition-all duration-300"
           >
-            Vreau să mă înscriu la Open Day <Icon icon="lucide:arrow-right" className="ml-1" />
+            Vreau să mă înscriu la Open Week <Icon icon="lucide:arrow-right" className="ml-1" />
           </button>
         </div>
       </div>
@@ -959,45 +1037,42 @@ function Contact({ onRegister }: { onRegister: () => void }) {
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="max-w-[600px] mx-auto text-center mb-14">
           <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Locație & Contact</div>
-          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-gray-900 leading-tight mb-4">Ne găsești ușor</h2>
+          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">Ne găsești ușor</h2>
         </div>
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Google Maps embed */}
+          {/* Google Maps embed — MY DENTAL CLINIC */}
           <div className="flex-1 min-h-[400px] rounded-[20px] overflow-hidden shadow-sm">
             <iframe
-              src="https://maps.google.com/maps?q=My+Dental+Clinic,+str.+Constantin+Brancusi+112,+Chisinau&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2720.5!2d28.8449!3d47.0245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1cf6134fc8b26b72!2sMy%20Dental%20Clinic!5e0!3m2!1sro!2smd!4v1710000000000!5m2!1sro!2smd"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: '400px' }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="My Dental Clinic — Google Maps"
+              title="MY DENTAL CLINIC — Google Maps"
             />
           </div>
           {/* Info + CTA */}
           <div className="flex-1 flex flex-col gap-6">
             <div className="bg-white rounded-[20px] p-8 shadow-sm">
               <div className="flex items-center gap-3 mb-6">
-                <svg width="28" height="20" viewBox="0 0 40 30" fill="none" className="text-accent">
-                  <path d="M4 8 Q20 28 36 8" stroke="currentColor" strokeWidth="6" strokeLinecap="round" fill="transparent" />
-                </svg>
-                <span className="font-heading font-bold text-lg text-gray-900">MY DENTAL CLINIC</span>
+                <img src="/logo orizontal 1-01 (1).svg" alt="MY DENTAL CLINIC" className="h-8 w-auto" />
               </div>
-              <ul className="space-y-3 text-[14px] text-gray-700 mb-6">
+              <ul className="space-y-3 text-[14px] text-[#0E2338] mb-6">
                 <li className="flex items-start gap-3"><Icon icon="lucide:map-pin" className="text-accent mt-1 flex-shrink-0" /><span>str. Constantin Brâncuși 112, Chișinău MD-2060</span></li>
-                <li className="flex items-center gap-3"><Icon icon="lucide:phone" className="text-accent flex-shrink-0" /><a href={`tel:${OPEN_DAY.phone.replace(/\s/g,'')}`} className="hover:text-accent font-medium">{OPEN_DAY.phone}</a></li>
+                <li className="flex items-center gap-3"><Icon icon="lucide:phone" className="text-accent flex-shrink-0" /><a href={`tel:${OPEN_DAY.phone.replace(/\s/g,'')}`} className="hover:text-accent font-medium">+373 {OPEN_DAY.phone}</a></li>
                 <li className="flex items-center gap-3"><Icon icon="lucide:mail" className="text-accent flex-shrink-0" /><a href="mailto:contact@mydentalclinic.md" className="hover:text-accent font-medium">contact@mydentalclinic.md</a></li>
               </ul>
               <div className="border-t border-gray-100 pt-5 mb-5">
-                <div className="text-[11px] text-gray-400 uppercase tracking-wide font-bold mb-3">Program Open Day</div>
+                <div className="text-[11px] text-gray-400 uppercase tracking-wide font-bold mb-3">Program Open Week</div>
                 <div className="flex justify-between text-[14px]">
-                  <span className="text-gray-600">{OPEN_DAY.dateRange}</span>
+                  <span className="text-[#0E2338]">{OPEN_DAY.dateRange}</span>
                   <span className="font-bold text-accent">{OPEN_DAY.time}</span>
                 </div>
               </div>
               <div className="flex gap-3">
-                <a href="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-accent hover:text-white transition-colors"><Icon icon="lucide:instagram" /></a>
+                <a href="https://www.instagram.com/mydentalclinic.md/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-accent hover:text-white transition-colors"><Icon icon="lucide:instagram" /></a>
                 <a href="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-accent hover:text-white transition-colors"><Icon icon="lucide:facebook" /></a>
                 <a href="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-accent hover:text-white transition-colors"><Icon icon="simple-icons:tiktok" /></a>
               </div>
@@ -1052,6 +1127,7 @@ export default function App() {
       <Navbar onRegister={openRegister} />
       <main>
         <Hero onRegister={openRegister} />
+        <DespreEveniment />
         <StatsBanner />
         <FreeBenefits onRegister={openRegister} />
         <CheckupServices onRegister={openRegister} />
@@ -1062,7 +1138,7 @@ export default function App() {
         <Doctors />
         <VideoPromo onRegister={openRegister} />
         <Reasons onRegister={openRegister} />
-        <Testimonials onRegister={openRegister} />
+        <GalerieAtmosfera onRegister={openRegister} />
         <Contact onRegister={openRegister} />
       </main>
       <Footer />
