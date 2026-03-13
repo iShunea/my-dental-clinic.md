@@ -739,33 +739,42 @@ function PromoGallery() {
 // ─── SERVICES OPEN DAY ───────────────────────────────────────────────────────
 
 function ServicesOpenDay({ onRegister }: { onRegister: () => void }) {
+  const reasons = [
+    { icon: 'stethoscope', text: 'Consultație gratuită cu medic specialist' },
+    { icon: 'scan-line', text: 'Tomografie dentară gratuită' },
+    { icon: 'clipboard-list', text: 'Plan de tratament personalizat' },
+    { icon: 'trophy', text: 'Posibilitatea de a câștiga premii' },
+    { icon: 'gift', text: 'Cadouri pentru copii' },
+    { icon: 'clock', text: 'Locuri limitate – eveniment organizat pentru o perioadă scurtă' },
+  ]
   return (
     <section id="servicii" className="bg-white py-20 md:py-24">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
-        <div className="max-w-[640px] mx-auto text-center mb-14">
-          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Servicii prezentate</div>
-          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">Ce tratamente vei putea discuta la Open Week</h2>
-          <p className="text-[16px] text-gray-500">Medicii noștri specialiști vor fi prezenți pentru consultații individuale și răspunsuri la orice întrebare</p>
-        </div>
-        <div className="flex flex-col lg:flex-row gap-8 items-start mb-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-1">
-            {SERVICES_OPENDAY.map((s) => (
-              <div key={s.title} className="bg-gray-50 rounded-[20px] p-8 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-full bg-[#E6E5EC] text-accent flex items-center justify-center mb-5">
-                  <Icon icon={`lucide:${s.icon}`} className="text-2xl" />
+      <div className="max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16">
+        <div className="flex flex-col lg:flex-row gap-12 items-center">
+          {/* Stânga — De ce să participi */}
+          <div className="flex-1">
+            <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">De ce să participi</div>
+            <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-8">
+              De ce merită să vii la Open Week
+            </h2>
+            <div className="flex flex-col gap-4 mb-10">
+              {reasons.map((r) => (
+                <div key={r.text} className="flex items-center gap-4 bg-gray-50 rounded-[14px] px-5 py-4 hover:shadow-sm transition-all duration-300">
+                  <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
+                    <Icon icon={`lucide:${r.icon}`} className="text-white text-base" />
+                  </div>
+                  <span className="text-[15px] font-medium text-[#0E2338]">{r.text}</span>
                 </div>
-                <h3 className="font-heading font-bold text-[20px] text-[#0E2338] mb-2">{s.title}</h3>
-                <p className="text-[14px] text-gray-500 mb-5">{s.desc}</p>
-                <ul className="flex flex-col gap-2.5">
-                  {s.bullets.map(b => (
-                    <li key={b} className="flex items-start gap-2.5 text-[14px] text-[#0E2338]">
-                      <Icon icon="lucide:check-circle" className="text-accent flex-shrink-0 mt-0.5" /> {b}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              ))}
+            </div>
+            <button
+              onClick={onRegister}
+              className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-12 py-4 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 transition-all duration-300 shadow-lg"
+            >
+              Vreau să mă înscriu la Open Week <Icon icon="lucide:arrow-right" className="ml-1" />
+            </button>
           </div>
+          {/* Dreapta — macheta */}
           <div className="lg:w-[320px] flex-shrink-0 rounded-[20px] overflow-hidden shadow-xl sticky top-[110px]">
             <img
               src="/open-week-macheta2.png"
@@ -773,14 +782,6 @@ function ServicesOpenDay({ onRegister }: { onRegister: () => void }) {
               className="w-full h-auto"
             />
           </div>
-        </div>
-        <div className="text-center">
-          <button
-            onClick={onRegister}
-            className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-12 py-4 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 transition-all duration-300"
-          >
-            Vreau să mă înscriu la Open Week <Icon icon="lucide:arrow-right" className="ml-1" />
-          </button>
         </div>
       </div>
     </section>
