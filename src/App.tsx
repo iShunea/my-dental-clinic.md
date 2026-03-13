@@ -403,48 +403,62 @@ function Hero({ onRegister }: { onRegister: () => void }) {
 
 function DespreEveniment() {
   return (
-    <section className="bg-white py-16 md:py-20 border-t border-gray-100">
-      <div className="max-w-[900px] mx-auto px-6 md:px-10">
-        <div className="text-center mb-10">
-          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Despre eveniment</div>
-          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">Ce este Open Week?</h2>
-        </div>
-        <div className="prose max-w-none text-[16px] text-[#0E2338] leading-relaxed space-y-4">
-          <p>
-            <strong>Open Week</strong> este un eveniment special dedicat sănătății dentare, organizat <strong>pentru prima dată în Moldova</strong> și care acoperă <strong>toate direcțiile stomatologice</strong>.
-          </p>
-          <p>
-            Timp de <strong>6 zile</strong>, pacienții pot beneficia <strong>gratuit</strong> de consultații și investigații stomatologice pentru a afla starea reală a dinților și pentru a primi <strong>recomandări corecte de tratament</strong>.
-          </p>
-          <p>
-            Este ocazia perfectă să îți verifici <strong>sănătatea dentară</strong> și să discuți cu specialiștii <strong>MY DENTAL CLINIC</strong> despre <strong>cele mai potrivite soluții pentru zâmbetul tău</strong>.
-          </p>
-        </div>
+    <section className="bg-white py-16 md:py-24 border-t border-gray-100">
+      <div className="max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16">
+        <div className="flex flex-col lg:flex-row gap-14 items-start">
 
-        <div className="mt-10 bg-gray-50 rounded-[24px] p-8">
-          <div className="text-accent font-bold text-[13px] uppercase tracking-wider mb-3">Serviciile incluse</div>
-          <p className="text-[15px] text-[#0E2338] mb-5">În cadrul Open Week poți beneficia de consultații pentru:</p>
-          <ul className="flex flex-col gap-3 mb-8">
-            {[
-              ['Implantologie', 'soluții moderne pentru înlocuirea dinților lipsă'],
-              ['Ortodonție', 'corectarea poziției dinților și a mușcăturii (brackets, alignere)'],
-              ['Protezare dentară', 'coroane, punți și restaurări dentare'],
-              ['Terapie dentară', 'tratarea cariilor și a problemelor dentare'],
-              ['Stomatologie estetică', 'pentru un zâmbet mai alb și mai armonios'],
-              ['Stomatologie pentru copii', 'consultații special dedicate celor mici'],
-            ].map(([title, desc]) => (
-              <li key={title} className="flex items-start gap-2.5 text-[14px] text-[#0E2338]">
-                <Icon icon="lucide:check-circle" className="text-accent flex-shrink-0 mt-0.5 text-base" />
-                <span><strong>{title}</strong> – {desc}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="text-[14px] text-[#0E2338] leading-relaxed mb-2">
-            Clinica este dotată cu <strong>echipamente de ultimă generație</strong>, iar tratamentele pot fi realizate cu <strong>microscop dentar și laser</strong>, pentru precizie și confort maxim.
-          </p>
-          <p className="text-[14px] text-[#0E2338]">
-            Toate consultațiile sunt realizate de <strong>medici stomatologi specializați</strong>.
-          </p>
+          {/* Stânga — text despre eveniment */}
+          <div className="flex-1">
+            <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Despre eveniment</div>
+            <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-8">Ce este Open Week?</h2>
+            <div className="flex flex-col gap-5 text-[16px] text-[#0E2338] leading-relaxed">
+              <p>
+                <strong>Open Week</strong> este un eveniment special dedicat sănătății dentare, organizat <strong>pentru prima dată în Moldova</strong> și care acoperă <strong>toate direcțiile stomatologice</strong>.
+              </p>
+              <p>
+                Timp de <strong>6 zile</strong>, pacienții pot beneficia <strong>gratuit</strong> de consultații și investigații stomatologice pentru a afla starea reală a dinților și pentru a primi <strong>recomandări corecte de tratament</strong>.
+              </p>
+              <p>
+                Este ocazia perfectă să îți verifici <strong>sănătatea dentară</strong> și să discuți cu specialiștii <strong>MY DENTAL CLINIC</strong> despre <strong>cele mai potrivite soluții pentru zâmbetul tău</strong>.
+              </p>
+            </div>
+            {/* Echipamente */}
+            <div className="mt-8 flex items-start gap-3 bg-gray-50 rounded-[16px] p-5">
+              <Icon icon="lucide:microscope" className="text-accent text-2xl flex-shrink-0 mt-0.5" />
+              <p className="text-[14px] text-[#0E2338] leading-relaxed">
+                Clinica este dotată cu <strong>echipamente de ultimă generație</strong> — microscop dentar și laser. Toate consultațiile sunt realizate de <strong>medici stomatologi specializați</strong>.
+              </p>
+            </div>
+          </div>
+
+          {/* Dreapta — serviciile incluse ca grid */}
+          <div className="lg:w-[420px] flex-shrink-0">
+            <div className="bg-[#0E2338] rounded-[24px] p-7">
+              <div className="text-accent font-bold text-[12px] uppercase tracking-[2px] mb-2">Serviciile incluse</div>
+              <p className="text-white font-heading font-bold text-[18px] mb-6">În cadrul Open Week poți beneficia de consultații pentru:</p>
+              <div className="flex flex-col gap-3">
+                {[
+                  { icon: 'anchor', title: 'Implantologie', desc: 'soluții moderne pentru înlocuirea dinților lipsă' },
+                  { icon: 'smile', title: 'Ortodonție', desc: 'corectarea poziției dinților (brackets, alignere)' },
+                  { icon: 'crown', title: 'Protezare dentară', desc: 'coroane, punți și restaurări dentare' },
+                  { icon: 'heart-pulse', title: 'Terapie dentară', desc: 'tratarea cariilor și a problemelor dentare' },
+                  { icon: 'sparkles', title: 'Stomatologie estetică', desc: 'pentru un zâmbet mai alb și mai armonios' },
+                  { icon: 'baby', title: 'Stomatologie copii', desc: 'consultații special dedicate celor mici' },
+                ].map(s => (
+                  <div key={s.title} className="flex items-center gap-3 bg-white/5 rounded-[12px] px-4 py-3 hover:bg-white/10 transition-colors">
+                    <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+                      <Icon icon={`lucide:${s.icon}`} className="text-accent text-sm" />
+                    </div>
+                    <div>
+                      <span className="font-bold text-white text-[13px]">{s.title}</span>
+                      <span className="text-white/50 text-[12px]"> — {s.desc}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
