@@ -819,7 +819,7 @@ function Doctors() {
           <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">Specialiștii tăi la Open Week</h2>
           <p className="text-[16px] text-gray-500">Profesioniști certificați, permanent la curent cu tehnicile stomatologice moderne</p>
         </div>
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-3 md:gap-4 mb-12">
+        <div className="columns-2 md:columns-3 lg:columns-5 gap-3 md:gap-4 mb-12">
           {TEAM_PHOTOS.map((src, i) => (
             <div
               key={i}
