@@ -670,13 +670,13 @@ function TombolaCadouri({ onRegister }: { onRegister: () => void }) {
               </div>
             </div>
             {/* Copii */}
-            <div className="bg-white rounded-[20px] p-6 shadow-sm flex items-start gap-4 mb-8">
-              <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0">
-                <Icon icon="lucide:gift" className="text-2xl" />
+            <div className="bg-[#0E2338] rounded-[20px] p-6 flex items-start gap-4 mb-8">
+              <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
+                <Icon icon="lucide:gift" className="text-white text-2xl" />
               </div>
               <div>
-                <p className="font-heading font-bold text-[16px] text-[#0E2338] mb-1">Surprize pentru copii</p>
-                <p className="text-[14px] text-gray-500 leading-relaxed">Toți copiii care vin la consultație în perioada Open Week vor primi <strong>cadouri speciale</strong> după vizită.</p>
+                <p className="font-heading font-bold text-[18px] text-white mb-1">Surprize pentru copii</p>
+                <p className="text-[14px] text-white/70 leading-relaxed">Toți copiii care vin la consultație în perioada Open Week vor primi <strong className="text-white">cadouri speciale</strong> după vizită.</p>
               </div>
             </div>
             <div className="bg-[#0E2338] rounded-[20px] p-7 text-center">
