@@ -1134,7 +1134,7 @@ function Footer() {
     <footer className="bg-[#0E2338]">
       <div className="max-w-[1440px] mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <img src="/logo orizontal 1-01 (1).svg" alt="MY DENTAL CLINIC" className="h-14 w-auto brightness-0 invert opacity-90" />
+          <img src="/logo orizontal 1-01 (1).svg" alt="MY DENTAL CLINIC" className="h-20 w-auto brightness-0 invert opacity-90" />
           <div className="text-[13px] text-gray-500 text-center md:text-left">© 2026 MY DENTAL CLINIC · Toate drepturile rezervate</div>
         </div>
         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-[12px] text-gray-500">
