@@ -418,43 +418,30 @@ function DespreEveniment() {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-gray-50 rounded-[20px] p-6">
-            <div className="text-accent font-bold text-[13px] uppercase tracking-wider mb-4">Serviciile incluse</div>
-            <ul className="flex flex-col gap-3">
-              {[
-                ['Implantologie', 'soluții moderne pentru înlocuirea dinților lipsă'],
-                ['Ortodonție', 'corectarea poziției dinților (brackets, alignere)'],
-                ['Protezare dentară', 'coroane, punți și restaurări dentare'],
-                ['Terapie dentară', 'tratarea cariilor și a problemelor dentare'],
-                ['Stomatologie estetică', 'pentru un zâmbet mai alb și mai armonios'],
-                ['Stomatologie pentru copii', 'consultații special dedicate celor mici'],
-              ].map(([title, desc]) => (
-                <li key={title} className="flex items-start gap-2.5 text-[14px] text-[#0E2338]">
-                  <Icon icon="lucide:check-circle" className="text-accent flex-shrink-0 mt-0.5 text-base" />
-                  <span><strong>{title}</strong> — {desc}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="bg-gray-50 rounded-[20px] p-6 flex flex-col justify-between">
-            <div>
-              <div className="text-accent font-bold text-[13px] uppercase tracking-wider mb-4">Echipamente moderne</div>
-              <p className="text-[14px] text-[#0E2338] leading-relaxed mb-4">
-                Clinica este dotată cu <strong>echipamente de ultimă generație</strong>, iar tratamentele pot fi realizate cu <strong>microscop dentar și laser</strong>, pentru precizie și confort maxim.
-              </p>
-              <p className="text-[14px] text-[#0E2338]">
-                Toate consultațiile sunt realizate de <strong>medici stomatologi specializați</strong>.
-              </p>
-            </div>
-            <div className="mt-6 flex items-center gap-3 bg-accent/10 rounded-[12px] p-4">
-              <Icon icon="lucide:calendar-range" className="text-accent text-2xl flex-shrink-0" />
-              <div>
-                <div className="font-heading font-bold text-[#0E2338] text-[15px]">{OPEN_DAY.dateRange}</div>
-                <div className="text-[13px] text-gray-500">{OPEN_DAY.time} · {OPEN_DAY.address}</div>
-              </div>
-            </div>
-          </div>
+        <div className="mt-10 bg-gray-50 rounded-[24px] p-8">
+          <div className="text-accent font-bold text-[13px] uppercase tracking-wider mb-3">Serviciile incluse</div>
+          <p className="text-[15px] text-[#0E2338] mb-5">În cadrul Open Week poți beneficia de consultații pentru:</p>
+          <ul className="flex flex-col gap-3 mb-8">
+            {[
+              ['Implantologie', 'soluții moderne pentru înlocuirea dinților lipsă'],
+              ['Ortodonție', 'corectarea poziției dinților și a mușcăturii (brackets, alignere)'],
+              ['Protezare dentară', 'coroane, punți și restaurări dentare'],
+              ['Terapie dentară', 'tratarea cariilor și a problemelor dentare'],
+              ['Stomatologie estetică', 'pentru un zâmbet mai alb și mai armonios'],
+              ['Stomatologie pentru copii', 'consultații special dedicate celor mici'],
+            ].map(([title, desc]) => (
+              <li key={title} className="flex items-start gap-2.5 text-[14px] text-[#0E2338]">
+                <Icon icon="lucide:check-circle" className="text-accent flex-shrink-0 mt-0.5 text-base" />
+                <span><strong>{title}</strong> – {desc}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="text-[14px] text-[#0E2338] leading-relaxed mb-2">
+            Clinica este dotată cu <strong>echipamente de ultimă generație</strong>, iar tratamentele pot fi realizate cu <strong>microscop dentar și laser</strong>, pentru precizie și confort maxim.
+          </p>
+          <p className="text-[14px] text-[#0E2338]">
+            Toate consultațiile sunt realizate de <strong>medici stomatologi specializați</strong>.
+          </p>
         </div>
       </div>
     </section>
