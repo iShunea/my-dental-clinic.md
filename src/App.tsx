@@ -521,44 +521,50 @@ function FreeBenefits({ onRegister }: { onRegister: () => void }) {
   ]
   return (
     <section id="beneficii" className="bg-gray-50 py-20 md:py-24">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
-        <div className="max-w-[600px] mx-auto text-center mb-14">
-          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Ce primești gratuit</div>
-          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">4 servicii GRATUITE · 6–11 Aprilie</h2>
-          <p className="text-[16px] text-gray-500">CHECK-UP DENTAL COMPLET — oferit gratuit în toată perioada Open Week</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
-          {benefits.map((b) => (
-            <div key={b.num} className={`${b.color} rounded-[20px] p-7 flex items-start gap-5 hover:shadow-md hover:-translate-y-1 transition-all duration-300`}>
-              <div className={`w-14 h-14 rounded-[14px] ${b.iconBg} flex items-center justify-center flex-shrink-0`}>
-                <Icon icon={`lucide:${b.icon}`} className={`text-2xl ${b.iconColor}`} />
+      <div className="max-w-[900px] mx-auto px-6 md:px-10">
+        <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Ce primești gratuit</div>
+        <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-6">Participând la Open Week beneficiezi <span className="text-accent">GRATUIT</span> de:</h2>
+
+        {/* 3 checkmarks principale */}
+        <ul className="flex flex-col gap-3 mb-8">
+          {[
+            'Consultație stomatologică completă',
+            'Tomografie dentară',
+            'Plan de tratament personalizat',
+          ].map(item => (
+            <li key={item} className="flex items-center gap-3 text-[17px] font-bold text-[#0E2338]">
+              <div className="w-7 h-7 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
+                <Icon icon="lucide:check" className="text-white text-sm" />
               </div>
-              <div className="flex-1">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-heading font-bold text-[19px] text-[#0E2338]">{b.title}</span>
-                  <span className="text-[28px] font-heading font-bold text-black/10 leading-none ml-3">{b.num}</span>
-                </div>
-                <p className="text-[14px] text-gray-600 leading-relaxed">{b.desc}</p>
-                <div className="mt-4 inline-flex items-center gap-1.5 text-accent text-[13px] font-bold">
-                  <Icon icon="lucide:check-circle" className="text-base" /> Inclus gratuit
-                </div>
-              </div>
-            </div>
+              {item}
+            </li>
           ))}
-        </div>
-        <div className="bg-[#0E2338] rounded-[24px] p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <p className="text-white font-heading font-bold text-[20px] mb-1">Toate 4 servicii — 100% GRATUIT</p>
-            <p className="text-white/60 text-[14px]">Participând la Open Week beneficiezi gratuit de consultație, radiografie, scanare și plan de tratament</p>
-          </div>
-          <button
-            onClick={onRegister}
-            className="flex-shrink-0 inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[15px] px-8 py-3.5 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 transition-all duration-300 shadow-lg"
-          >
-            <Icon icon="lucide:phone" /> Rezervă locul gratuit →
-          </button>
-        </div>
-        <p className="text-center text-[13px] text-gray-400 mt-4">Perioada: {OPEN_DAY.dateRange} · {OPEN_DAY.time}</p>
+        </ul>
+
+        {/* Medicii noștri */}
+        <p className="text-[16px] text-[#0E2338] mb-4">Medicii noștri îți vor explica clar:</p>
+        <ul className="flex flex-col gap-2 mb-8 pl-2">
+          {[
+            'starea actuală a dinților tăi',
+            'ce tratamente sunt necesare',
+            'ce opțiuni ai pentru un zâmbet sănătos',
+          ].map(item => (
+            <li key={item} className="flex items-start gap-2 text-[15px] text-[#0E2338]">
+              <span className="text-accent font-bold mt-0.5">•</span> {item}
+            </li>
+          ))}
+        </ul>
+
+        <p className="text-[16px] text-[#0E2338] mb-10">
+          Toate acestea <strong>fără costuri</strong> adiționale pe tot parcursul evenimentului.
+        </p>
+
+        <button
+          onClick={onRegister}
+          className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-12 py-4 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 transition-all duration-300 shadow-lg"
+        >
+          Rezervă locul gratuit <Icon icon="lucide:arrow-right" className="ml-1" />
+        </button>
       </div>
     </section>
   )
