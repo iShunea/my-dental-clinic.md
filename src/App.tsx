@@ -15,12 +15,6 @@ const OPEN_DAY = {
   eventDate: new Date('2026-04-06T09:00:00'),
 }
 
-const FREE_BENEFITS = [
-  { num: '1', title: 'Radiografie panoramică', desc: 'Vedere completă a arcadelor dentare în format digital — inclus gratuit în ziua evenimentului', icon: 'scan-line', img: '/Poze landing/Poze landing/photo_2026-03-11_13-43-53 (3).jpg' },
-  { num: '2', title: 'Consultație stomatologică', desc: 'Examinare completă cu medicul specialist și identificarea problemelor dentare', icon: 'stethoscope', img: '/Poze landing/Poze landing/photo_2026-03-11_13-43-53 (2).jpg' },
-  { num: '3', title: 'Plan de tratament', desc: 'Plan personalizat cu priorități clare, fără obligații', icon: 'clipboard-list', img: '/Poze landing/Poze landing/photo_2026-03-11_13-43-53 (5).jpg' },
-  { num: '4', title: 'Scanare intraorală', desc: 'Scanare digitală de precizie a cavității orale — imagine 3D completă a dinților și țesuturilor', icon: 'cpu', img: '/Poze landing/Poze landing/IMG_7942.jpg' },
-]
 
 const CHECKUP_SERVICES = [
   { icon: 'scan-line', title: 'Radiografie panoramică', desc: 'Imagine digitală completă a dinților și maxilarelor' },
@@ -304,16 +298,16 @@ function CountdownWidget() {
     { val: seconds, label: 'Sec' },
   ]
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-3">
       {units.map(({ val, label }, i) => (
-        <div key={label} className="flex items-center gap-2">
+        <div key={label} className="flex items-center gap-3">
           <div className="flex flex-col items-center">
-            <div className="bg-white/20 text-white font-heading font-bold text-[22px] md:text-[28px] w-[56px] md:w-[68px] h-[52px] md:h-[64px] rounded-[10px] flex items-center justify-center leading-none tabular-nums shadow-md border border-white/30">
+            <div className="bg-accent text-white font-heading font-bold text-[32px] w-[72px] h-[72px] rounded-[14px] flex items-center justify-center leading-none tabular-nums shadow-lg">
               {String(val).padStart(2, '0')}
             </div>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-white mt-1">{label}</span>
+            <span className="text-[11px] font-bold uppercase tracking-[1.5px] text-white/70 mt-2">{label}</span>
           </div>
-          {i < 3 && <span className="text-white/60 font-bold text-[20px] mb-4 leading-none">:</span>}
+          {i < 3 && <span className="text-white/40 font-bold text-[28px] mb-5 leading-none">:</span>}
         </div>
       ))}
     </div>
@@ -376,13 +370,11 @@ function Hero({ onRegister }: { onRegister: () => void }) {
             </div>
 
             {/* Countdown */}
-            <div className="mt-2">
-              <p className="text-[12px] font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-2">
-                <Icon icon="lucide:timer" className="text-accent" /> Evenimentul începe în:
+            <div className="mt-4 bg-[#0E2338] rounded-[18px] px-6 py-5 inline-flex flex-col gap-2 shadow-lg">
+              <p className="text-[11px] font-bold text-white/60 uppercase tracking-[2px] flex items-center gap-2">
+                <Icon icon="lucide:timer" className="text-accent text-[14px]" /> Evenimentul începe în:
               </p>
-              <div className="inline-flex bg-accent rounded-[14px] px-4 py-3">
-                <CountdownWidget />
-              </div>
+              <CountdownWidget />
             </div>
           </div>
 
@@ -979,38 +971,30 @@ function CountdownBanner({ onRegister }: { onRegister: () => void }) {
 function Reasons({ onRegister }: { onRegister: () => void }) {
   return (
     <section className="bg-gray-50 py-20 md:py-24">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
-          {/* Banner imagine */}
-          <div className="lg:w-[420px] flex-shrink-0 rounded-[24px] overflow-hidden shadow-xl">
-            <img
-              src="/Banere prin site/10-motive.png"
-              alt="10 motive să alegi MY DENTAL CLINIC"
-              className="w-full h-auto"
-            />
-          </div>
-          <div className="flex-1">
-            <div className="mb-10">
-              <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">De ce noi</div>
-              <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">10 motive să alegi MY DENTAL CLINIC</h2>
+      <div className="max-w-[1100px] mx-auto px-6 md:px-10 lg:px-16">
+        <div className="text-center mb-10">
+          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">De ce noi</div>
+          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight">
+            10 motive să alegi MY DENTAL CLINIC
+          </h2>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-3 mb-10">
+          {REASONS.map((r) => (
+            <div key={r.text} className="bg-white rounded-[14px] p-4 shadow-sm flex items-center gap-3 hover:shadow-md transition-all duration-300">
+              <div className="w-9 h-9 rounded-full bg-[#E6E5EC] text-accent flex items-center justify-center flex-shrink-0">
+                <Icon icon={`lucide:${r.icon}`} className="text-base" />
+              </div>
+              <span className="text-[13px] font-medium text-[#0E2338] leading-snug">{r.text}</span>
             </div>
-            <div className="grid grid-cols-2 gap-3 mb-10">
-              {REASONS.map((r) => (
-                <div key={r.text} className="bg-white rounded-[14px] p-4 shadow-sm flex items-center gap-3 hover:shadow-md transition-all duration-300">
-                  <div className="w-9 h-9 rounded-full bg-[#E6E5EC] text-accent flex items-center justify-center flex-shrink-0">
-                    <Icon icon={`lucide:${r.icon}`} className="text-base" />
-                  </div>
-                  <span className="text-[13px] font-medium text-[#0E2338] leading-snug">{r.text}</span>
-                </div>
-              ))}
-            </div>
-            <button
-              onClick={onRegister}
-              className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-12 py-4 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 hover:shadow-lg transition-all duration-300"
-            >
-              Vreau la Open Week <Icon icon="lucide:arrow-right" className="ml-1" />
-            </button>
-          </div>
+          ))}
+        </div>
+        <div className="flex justify-center">
+          <button
+            onClick={onRegister}
+            className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-12 py-4 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 hover:shadow-lg transition-all duration-300"
+          >
+            Vreau la Open Week <Icon icon="lucide:arrow-right" className="ml-1" />
+          </button>
         </div>
       </div>
     </section>
