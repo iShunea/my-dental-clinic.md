@@ -72,12 +72,9 @@ const REASONS = [
 ]
 
 const TOMBOLA_PRIZES = [
-  { icon: 'sparkles', text: 'Albire profesională' },
-  { icon: 'droplets', text: 'Igienizare dentară' },
-  { icon: 'smile', text: 'Consultație estetică' },
-  { icon: 'gift', text: 'Kit de îngrijire dentară' },
-  { icon: 'star', text: 'Reducere la tratament' },
-  { icon: 'package', text: 'Surprize speciale' },
+  { icon: 'anchor', text: 'Implant dentar', highlight: true },
+  { icon: 'sparkles', text: 'Albire dentară gratuită', highlight: false },
+  { icon: 'droplets', text: 'Igienizare profesională gratuită', highlight: false },
 ]
 
 const GALLERY_PHOTOS = [
@@ -643,7 +640,14 @@ function CheckupServices({ onRegister }: { onRegister: () => void }) {
           ))}
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-10 rounded-[20px] overflow-hidden shadow-md">
+          <img
+            src="/Banere prin site/modificari-2.png"
+            alt="Open Week MY DENTAL CLINIC — detalii eveniment"
+            className="w-full h-auto"
+          />
+        </div>
+        <div className="mt-6 text-center">
           <p className="text-[14px] text-gray-500 flex items-center justify-center gap-2">
             <Icon icon="lucide:info" className="text-accent" />
             Dacă în urma consultației dorești albire sau igienizare — le putem efectua imediat, cu plată în ziua evenimentului
@@ -661,28 +665,40 @@ function TombolaCadouri({ onRegister }: { onRegister: () => void }) {
     <section className="bg-gray-50 py-20 md:py-24">
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
         <div className="max-w-[700px] mx-auto text-center mb-14">
-          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Nimeni nu face cadouri ca noi</div>
-          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">Tombolă & Cadouri de Open Week</h2>
-          <p className="text-[16px] text-gray-500">Fiecare participant are șansa să câștige. Cadouri surpriză pentru toți vizitatorii zilei!</p>
+          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">Participi automat la tombolă</div>
+          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">Tombolă & Surprize pentru Copii</h2>
+          <p className="text-[16px] text-gray-500">Toți pacienții care participă la Open Week intră automat în tombola specială</p>
         </div>
-        <div className="flex flex-col lg:flex-row gap-10 items-center">
+        <div className="flex flex-col lg:flex-row gap-10 items-start">
           <div className="flex-1">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-              {TOMBOLA_PRIZES.map((prize) => (
-                <div key={prize.text} className="bg-white rounded-[20px] p-6 flex flex-col items-center text-center gap-4 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                  <div className="w-14 h-14 rounded-full bg-[#E6E5EC] text-accent flex items-center justify-center">
-                    <Icon icon={`lucide:${prize.icon}`} className="text-2xl" />
+            {/* Premii tombola */}
+            <div className="mb-6">
+              <p className="text-[13px] font-bold uppercase tracking-[2px] text-gray-400 mb-4">Poți câștiga:</p>
+              <div className="flex flex-col gap-4">
+                {TOMBOLA_PRIZES.map((prize) => (
+                  <div key={prize.text} className={`rounded-[16px] p-5 flex items-center gap-4 ${prize.highlight ? 'bg-[#0E2338] shadow-lg' : 'bg-white shadow-sm'}`}>
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ${prize.highlight ? 'bg-accent' : 'bg-[#E6E5EC]'}`}>
+                      <Icon icon={`lucide:${prize.icon}`} className={`text-xl ${prize.highlight ? 'text-white' : 'text-accent'}`} />
+                    </div>
+                    <span className={`font-heading font-bold text-[17px] ${prize.highlight ? 'text-white' : 'text-[#0E2338]'}`}>{prize.text}</span>
+                    {prize.highlight && <span className="ml-auto text-[11px] bg-accent/30 text-white font-bold px-2 py-0.5 rounded-full">MARELE PREMIU</span>}
                   </div>
-                  <span className="text-[15px] font-medium text-[#0E2338] leading-snug">{prize.text}</span>
-                </div>
-              ))}
-            </div>
-            <div className="bg-white rounded-[20px] p-8 text-center shadow-md">
-              <div className="w-16 h-16 rounded-full bg-[#E6E5EC] text-accent flex items-center justify-center mx-auto mb-4">
-                <Icon icon="lucide:gift" className="text-3xl" />
+                ))}
               </div>
-              <p className="text-[#0E2338] font-heading font-bold text-[18px] mb-2">Înscrie-te și participi automat la tombolă!</p>
-              <p className="text-gray-500 text-[14px] mb-6">Toți participanții înregistrați la Open Week intră în tragerea la sorți pentru cadouri speciale</p>
+            </div>
+            {/* Copii */}
+            <div className="bg-white rounded-[20px] p-6 shadow-sm flex items-start gap-4 mb-8">
+              <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0">
+                <Icon icon="lucide:gift" className="text-2xl" />
+              </div>
+              <div>
+                <p className="font-heading font-bold text-[16px] text-[#0E2338] mb-1">Surprize pentru copii</p>
+                <p className="text-[14px] text-gray-500 leading-relaxed">Toți copiii care vin la consultație în perioada Open Week vor primi <strong>cadouri speciale</strong> după vizită.</p>
+              </div>
+            </div>
+            <div className="bg-[#0E2338] rounded-[20px] p-7 text-center">
+              <p className="text-white font-heading font-bold text-[18px] mb-2">Înscrie-te și participi automat!</p>
+              <p className="text-white/60 text-[14px] mb-5">Este șansa ta să câștigi un tratament stomatologic important pentru zâmbetul tău</p>
               <button
                 onClick={onRegister}
                 className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-10 py-3.5 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 transition-all duration-300"
@@ -694,7 +710,7 @@ function TombolaCadouri({ onRegister }: { onRegister: () => void }) {
           <div className="lg:w-[380px] flex-shrink-0">
             <img
               src="/open-week-macheta-4-copii.png"
-              alt="Open Week — Tombolă & Copii"
+              alt="Open Week MY DENTAL CLINIC — Tombolă & Copii"
               className="w-full rounded-[24px] shadow-xl"
             />
           </div>
@@ -964,27 +980,37 @@ function Reasons({ onRegister }: { onRegister: () => void }) {
   return (
     <section className="bg-gray-50 py-20 md:py-24">
       <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-16">
-        <div className="max-w-[600px] mx-auto text-center mb-14">
-          <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">De ce noi</div>
-          <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">10 motive să alegi MY DENTAL CLINIC</h2>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
-          {REASONS.map((r) => (
-            <div key={r.text} className="bg-white rounded-[16px] p-5 shadow-sm flex flex-col items-center text-center gap-3 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-              <div className="w-10 h-10 rounded-full bg-[#E6E5EC] text-accent flex items-center justify-center">
-                <Icon icon={`lucide:${r.icon}`} className="text-lg" />
-              </div>
-              <span className="text-[13px] font-medium text-[#0E2338] leading-snug">{r.text}</span>
+        <div className="flex flex-col lg:flex-row gap-12 items-center">
+          {/* Banner imagine */}
+          <div className="lg:w-[420px] flex-shrink-0 rounded-[24px] overflow-hidden shadow-xl">
+            <img
+              src="/Banere prin site/10-motive.png"
+              alt="10 motive să alegi MY DENTAL CLINIC"
+              className="w-full h-auto"
+            />
+          </div>
+          <div className="flex-1">
+            <div className="mb-10">
+              <div className="text-accent text-[13px] font-bold uppercase tracking-[2px] mb-3">De ce noi</div>
+              <h2 className="font-heading font-bold text-3xl md:text-[40px] text-[#0E2338] leading-tight mb-4">10 motive să alegi MY DENTAL CLINIC</h2>
             </div>
-          ))}
-        </div>
-        <div className="text-center">
-          <button
-            onClick={onRegister}
-            className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-12 py-4 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 hover:shadow-lg transition-all duration-300"
-          >
-            Vreau la Open Week <Icon icon="lucide:arrow-right" className="ml-1" />
-          </button>
+            <div className="grid grid-cols-2 gap-3 mb-10">
+              {REASONS.map((r) => (
+                <div key={r.text} className="bg-white rounded-[14px] p-4 shadow-sm flex items-center gap-3 hover:shadow-md transition-all duration-300">
+                  <div className="w-9 h-9 rounded-full bg-[#E6E5EC] text-accent flex items-center justify-center flex-shrink-0">
+                    <Icon icon={`lucide:${r.icon}`} className="text-base" />
+                  </div>
+                  <span className="text-[13px] font-medium text-[#0E2338] leading-snug">{r.text}</span>
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={onRegister}
+              className="inline-flex items-center gap-2 bg-accent text-white font-heading font-bold text-[16px] px-12 py-4 rounded-[50px] hover:bg-[#A30B37] hover:scale-105 hover:shadow-lg transition-all duration-300"
+            >
+              Vreau la Open Week <Icon icon="lucide:arrow-right" className="ml-1" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
