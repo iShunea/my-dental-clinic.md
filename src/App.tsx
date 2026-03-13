@@ -393,7 +393,7 @@ function Hero({ onRegister }: { onRegister: () => void }) {
           <div className="w-full lg:w-[45%] flex flex-col items-center">
             <div className="w-full max-w-[420px] rounded-[20px] overflow-hidden shadow-xl">
               <img
-                src="/Open-week-final.png"
+                src="/Banere prin site/open-week-1.png"
                 alt="Open Week MY DENTAL CLINIC — poster oficial"
                 className="w-full h-auto"
               />
