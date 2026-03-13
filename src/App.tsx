@@ -335,8 +335,11 @@ function Hero({ onRegister }: { onRegister: () => void }) {
               <span className="text-accent">6–11 APRILIE</span>
             </h1>
 
-            <p className="text-[17px] text-[#0E2338] font-semibold max-w-[500px] mb-6 leading-relaxed">
+            <p className="text-[17px] text-[#0E2338] font-semibold max-w-[500px] mb-3 leading-relaxed">
               6 zile de consultații stomatologice GRATUITE
+            </p>
+            <p className="text-[15px] text-gray-500 max-w-[500px] mb-6 leading-relaxed">
+              În cadrul Open Week, îți poți verifica sănătatea dinților și poți primi recomandări de la medicii noștri specialiști.
             </p>
 
             {/* Checkmarks */}
