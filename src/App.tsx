@@ -775,7 +775,7 @@ function ServicesOpenDay({ onRegister }: { onRegister: () => void }) {
             </button>
           </div>
           {/* Dreapta — macheta */}
-          <div className="lg:w-[320px] flex-shrink-0 rounded-[20px] overflow-hidden shadow-xl sticky top-[110px]">
+          <div className="lg:w-[460px] flex-shrink-0 rounded-[20px] overflow-hidden shadow-xl sticky top-[110px]">
             <img
               src="/open-week-macheta2.png"
               alt="Open Week MY DENTAL CLINIC — toate serviciile stomatologice"
