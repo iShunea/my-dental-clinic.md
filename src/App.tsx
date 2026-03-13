@@ -206,10 +206,10 @@ function RegisterModal({ onClose }: { onClose: () => void }) {
   }, [onClose])
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={onClose}>
+    <div className="fixed inset-0 z-[100] flex items-start justify-center p-4 overflow-y-auto" onClick={onClose}>
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
       <div
-        className="relative bg-white rounded-[20px] shadow-2xl max-w-[480px] w-full p-8 animate-fade-in"
+        className="relative bg-white rounded-[20px] shadow-2xl max-w-[480px] w-full p-6 sm:p-8 my-auto animate-fade-in"
         onClick={e => e.stopPropagation()}
       >
         <button onClick={onClose} className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-accent hover:text-white transition-colors">
@@ -219,8 +219,10 @@ function RegisterModal({ onClose }: { onClose: () => void }) {
         <h3 className="font-heading font-bold text-[22px] text-[#0E2338] mb-1">Open Week — {OPEN_DAY.dateRange}</h3>
         <p className="text-[13px] text-gray-500 mb-6">Completează formularul și te sunam noi pentru confirmare.</p>
         <form className="flex flex-col gap-3" onSubmit={e => e.preventDefault()}>
-          <input type="text" placeholder="Nume și prenume" className="w-full bg-white border border-gray-200 text-gray-800 text-[14px] px-4 py-3 rounded-[8px] focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent" />
-          <input type="tel" placeholder="Telefon" className="w-full bg-white border border-gray-200 text-gray-800 text-[14px] px-4 py-3 rounded-[8px] focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent" />
+          <label htmlFor="reg-name" className="sr-only">Nume și prenume</label>
+          <input id="reg-name" name="name" type="text" placeholder="Nume și prenume" className="w-full bg-white border border-gray-200 text-gray-800 text-[14px] px-4 py-3 rounded-[8px] focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent" />
+          <label htmlFor="reg-phone" className="sr-only">Telefon</label>
+          <input id="reg-phone" name="phone" type="tel" placeholder="Telefon" className="w-full bg-white border border-gray-200 text-gray-800 text-[14px] px-4 py-3 rounded-[8px] focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent" />
           <CustomSelect
             value={selectedService}
             onChange={setSelectedService}
@@ -248,13 +250,13 @@ function RegisterModal({ onClose }: { onClose: () => void }) {
 function Navbar({ onRegister }: { onRegister: () => void }) {
   const [isOpen, setIsOpen] = useState(false)
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 shadow-sm h-[100px]">
-      <div className="max-w-[1440px] mx-auto px-6 h-full flex items-center justify-between">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 shadow-sm h-[70px] md:h-[100px]">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-6 h-full flex items-center justify-between">
         <a href="#" className="flex items-center group">
           <img
             src="/logo orizontal 1-01 (1).svg"
             alt="MY DENTAL CLINIC"
-            className="h-[92px] w-auto group-hover:scale-105 transition-transform"
+            className="h-[55px] md:h-[92px] w-auto group-hover:scale-105 transition-transform"
           />
         </a>
         <div className="hidden md:flex items-center gap-8">
@@ -302,12 +304,12 @@ function CountdownWidget() {
       {units.map(({ val, label }, i) => (
         <div key={label} className="flex items-center gap-3">
           <div className="flex flex-col items-center">
-            <div className="bg-accent text-white font-heading font-bold text-[32px] w-[72px] h-[72px] rounded-[14px] flex items-center justify-center leading-none tabular-nums shadow-lg">
+            <div className="bg-accent text-white font-heading font-bold text-xl sm:text-2xl md:text-[32px] w-14 h-14 sm:w-16 sm:h-16 md:w-[72px] md:h-[72px] rounded-[14px] flex items-center justify-center leading-none tabular-nums shadow-lg">
               {String(val).padStart(2, '0')}
             </div>
-            <span className="text-[11px] font-bold uppercase tracking-[1.5px] text-white/70 mt-2">{label}</span>
+            <span className="text-[10px] md:text-[11px] font-bold uppercase tracking-[1.5px] text-white/80 mt-2">{label}</span>
           </div>
-          {i < 3 && <span className="text-white/40 font-bold text-[28px] mb-5 leading-none">:</span>}
+          {i < 3 && <span className="text-white/40 font-bold text-lg md:text-[28px] mb-4 md:mb-5 leading-none">:</span>}
         </div>
       ))}
     </div>
@@ -318,7 +320,7 @@ function CountdownWidget() {
 
 function Hero({ onRegister }: { onRegister: () => void }) {
   return (
-    <header className="relative pt-[120px] pb-16 md:pt-[140px] md:pb-24 overflow-hidden bg-white">
+    <header className="relative pt-[90px] pb-16 md:pt-[140px] md:pb-24 overflow-hidden bg-white">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#E6E5EC] rounded-full -translate-y-1/3 translate-x-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#E6E5EC]/60 rounded-full translate-y-1/2 -translate-x-1/3 pointer-events-none" />
 
