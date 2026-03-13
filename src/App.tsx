@@ -481,44 +481,6 @@ function StatsBanner() {
 // ─── FREE BENEFITS ────────────────────────────────────────────────────────────
 
 function FreeBenefits({ onRegister }: { onRegister: () => void }) {
-  const benefits = [
-    {
-      num: '01',
-      icon: 'scan-line',
-      title: 'Radiografie panoramică',
-      desc: 'Imagine digitală completă a dinților și maxilarelor — inclusă gratuit',
-      color: 'bg-blue-50',
-      iconColor: 'text-[#0E2338]',
-      iconBg: 'bg-[#0E2338]/10',
-    },
-    {
-      num: '02',
-      icon: 'stethoscope',
-      title: 'Consultație stomatologică',
-      desc: 'Examinare completă cu medicul specialist și identificarea problemelor dentare',
-      color: 'bg-rose-50',
-      iconColor: 'text-accent',
-      iconBg: 'bg-accent/10',
-    },
-    {
-      num: '03',
-      icon: 'clipboard-list',
-      title: 'Plan de tratament',
-      desc: 'Plan personalizat cu priorități clare, estimări de costuri — fără obligații',
-      color: 'bg-emerald-50',
-      iconColor: 'text-emerald-700',
-      iconBg: 'bg-emerald-100',
-    },
-    {
-      num: '04',
-      icon: 'cpu',
-      title: 'Scanare intraorală',
-      desc: 'Scanare 3D digitală de precizie a cavității orale — fără amprente clasice',
-      color: 'bg-violet-50',
-      iconColor: 'text-violet-700',
-      iconBg: 'bg-violet-100',
-    },
-  ]
   return (
     <section id="beneficii" className="bg-gray-50 py-20 md:py-24">
       <div className="max-w-[900px] mx-auto px-6 md:px-10">
